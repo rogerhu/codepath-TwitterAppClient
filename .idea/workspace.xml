@@ -13,14 +13,19 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b201041-7499-4503-9387-e4566d109f15" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/Tweet.java" afterPath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/Tweet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TweetAdapter.java" afterPath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TweetAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml" afterPath="$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml" afterPath="$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/ComposeActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_compose.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android-rest-client-template-master/res/menu/twitter.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/android-rest-client-template-master/res/menu/photos.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android-rest-client-template-master/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java" afterPath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java" afterPath="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml" afterPath="$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TwitterAppClient.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,7 +111,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/User.java" line="39" class="com.codepath.apps.restclienttemplate.models.User" package="com.codepath.apps.restclienttemplate.models">
+      <breakpoint url="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/ComposeActivity.java" line="34" class="com.codepath.apps.restclienttemplate.ComposeActivity" package="com.codepath.apps.restclienttemplate">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -131,105 +136,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Tweet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/Tweet.java">
+      <file leaf-file-name="ComposeActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/ComposeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="22" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="1650">
-              <folding>
-                <element signature="e#2098#2099#0" expanded="true" />
-                <element signature="e#2125#2126#0" expanded="true" />
-                <element signature="e#2157#2158#0" expanded="true" />
-                <element signature="e#2190#2191#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="39" selection-start="662" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+            <state line="30" column="17" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml">
+      <file leaf-file-name="activity_compose.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_compose.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="12" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+            <state line="49" column="15" selection-start="1559" selection-end="1559" vertical-scroll-proportion="-13.827586" vertical-offset="334" max-vertical-offset="915">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1110">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1213#1214#0" expanded="true" />
-                <element signature="e#1258#1259#0" expanded="true" />
-                <element signature="e#1293#1294#0" expanded="true" />
-                <element signature="e#1325#1326#0" expanded="true" />
-                <element signature="e#1365#1366#0" expanded="true" />
-                <element signature="e#1404#1405#0" expanded="true" />
-                <element signature="e#1436#1437#0" expanded="true" />
-                <element signature="e#1468#1469#0" expanded="true" />
-              </folding>
-            </state>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="34" selection-start="821" selection-end="821" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+            <state line="48" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimelineActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="65" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="690">
-              <folding>
-                <element signature="e#730#737#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+      <file leaf-file-name="activity_login.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_login.xml">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TweetAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TweetAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="58" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="885">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_tweet.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="38" selection-start="578" selection-end="578" vertical-scroll-proportion="0.42429283" vertical-offset="0" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
         </entry>
@@ -237,12 +181,61 @@
       <file leaf-file-name="activity_twitter_stream.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="21" selection-start="479" selection-end="479" vertical-scroll-proportion="-6.724138" vertical-offset="0" max-vertical-offset="345">
+            <state line="10" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="-5.172414" vertical-offset="0" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twitter.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/menu/twitter.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="37" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+              <folding>
+                <element signature="e#266#291#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimelineActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+              <folding>
+                <element signature="e#797#804#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OAuthLoginActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/com/codepath/oauth/OAuthLoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="10" selection-start="8" selection-end="10" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="780">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OAuthBaseClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/com/codepath/oauth/OAuthBaseClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="32" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2280">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TwitterClient.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.5163934" vertical-offset="0" max-vertical-offset="900">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -267,23 +260,27 @@
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/TwitterTimelineModel.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/TwitterStream.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/BaseModel.java" />
-        <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/User.java" />
-        <option value="$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/Tweet.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TweetAdapter.java" />
         <option value="$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/ComposeActivity.java" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_compose.xml" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/gen/com/codepath/apps/restclienttemplate/R.java" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/res/menu/twitter.xml" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java" />
+        <option value="$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1431" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="1434" />
+    <option name="y" value="109" />
+    <option name="width" value="1845" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -311,6 +308,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -344,28 +343,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="restclienttemplate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TwitterAppClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-rest-client-template-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="restclienttemplate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,6 +392,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwitterAppClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-rest-client-template-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -432,8 +427,22 @@
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="universal-image-loader-1.8.4.jar" />
+              <option name="myItemId" value="TwitterAppClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-rest-client-template-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codepath-oauth-0.2.4.jar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,11 +460,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="universal-image-loader-1.8.4.jar" />
+              <option name="myItemId" value="codepath-oauth-0.2.4.jar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="universalimageloader" />
+              <option name="myItemId" value="oauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,14 +478,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
+              <option name="myItemId" value="gen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restclienttemplate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -492,8 +503,15 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="LayoutCode.rearrangeEntriesXML" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android-rest-client-template-master/res/drawable-xxhdpi" />
+      <recent name="$PROJECT_DIR$/android-rest-client-template-master/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/android-rest-client-template-master/res/drawable-mdpi" />
+      <recent name="$PROJECT_DIR$/android-rest-client-template-master/res/drawable-hdpi" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.codepath.apps.restclienttemplate" />
     </key>
@@ -677,7 +695,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1431" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="1434" y="109" width="1845" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -686,19 +704,19 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938007" sideWeight="0.6710744" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.387589" sideWeight="0.65121293" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32858595" sideWeight="0.15363881" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39979014" sideWeight="0.6552845" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843652" sideWeight="0.15392955" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5218718" sideWeight="0.49973047" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32858595" sideWeight="0.84636116" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.521511" sideWeight="0.499729" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843652" sideWeight="0.84607047" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17196766" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756868" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17289972" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32738718" sideWeight="0.499729" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -720,30 +738,59 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/Instrumentation.class">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="16" selection-start="5963" selection-end="5963" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2370">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/android-async-http-1.4.3-sources.jar!/com/loopj/android/http/AsyncHttpResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/gen/com/codepath/apps/restclienttemplate/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="0" selection-start="7431" selection-end="7431" vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="3255">
-          <folding>
-            <element signature="e#0#7658#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#2636#2808#0" expanded="false" />
-            <element signature="e#2793#2794#0" expanded="false" />
-          </folding>
+        <state line="5" column="19" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/android-async-http-1.4.3-sources.jar!/com/loopj/android/http/JsonHttpResponseHandler.java">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/gen/com/codepath/apps/restclienttemplate/Manifest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="2295">
+        <state line="6" column="1" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/gen/com/codepath/apps/restclienttemplate/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="1" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="32" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="48" selection-start="1421" selection-end="1421" vertical-scroll-proportion="-13.827586" vertical-offset="229" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="-5.172414" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_login.xml">
@@ -756,113 +803,67 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/RestClientApp.java">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_compose.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="47" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="585">
+        <state line="49" column="15" selection-start="1559" selection-end="1559" vertical-scroll-proportion="-13.827586" vertical-offset="334" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/menu/twitter.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="37" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding>
+            <element signature="e#266#291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/com/codepath/oauth/OAuthLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="10" selection-start="8" selection-end="10" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java">
+    <entry file="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/com/codepath/oauth/OAuthBaseClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="35" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="735">
+        <state line="13" column="32" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2280">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="821" selection-end="821" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+        <state line="48" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/User.java">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/ComposeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1110">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1293#1294#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="39" selection-start="662" selection-end="670" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+        <state line="30" column="17" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/activity_twitter_stream.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="21" selection-start="479" selection-end="479" vertical-scroll-proportion="-6.724138" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/models/Tweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="22" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="1650">
-          <folding>
-            <element signature="e#2098#2099#0" expanded="true" />
-            <element signature="e#2125#2126#0" expanded="true" />
-            <element signature="e#2157#2158#0" expanded="true" />
-            <element signature="e#2190#2191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TweetAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="58" selection-start="1717" selection-end="1717" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="885">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TimelineActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="65" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="690">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
           <folding>
-            <element signature="e#730#737#0" expanded="true" />
+            <element signature="e#797#804#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/src/com/codepath/apps/restclienttemplate/TwitterClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+        <state line="29" column="0" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.5163934" vertical-offset="0" max-vertical-offset="900">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android-rest-client-template-master/res/layout/item_tweet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="38" selection-start="578" selection-end="578" vertical-scroll-proportion="0.42429283" vertical-offset="0" max-vertical-offset="825">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
   </component>

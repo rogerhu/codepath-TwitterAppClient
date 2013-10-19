@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.webkit.CookieManager;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,13 +28,15 @@ public class TimelineActivity extends Activity {
 
     ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 
+    private int TWEET_PER_PAGE = 25;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twitter_stream);
 
         Intent i = new Intent();
         TwitterClient client = RestClientApp.getRestClient();
-        client.getHomeTimeline(1, new JsonHttpResponseHandler() {
+        client.getHomeTimeline(1, TWEET_PER_PAGE, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(JSONArray jsonTweets) {
@@ -52,7 +56,18 @@ public class TimelineActivity extends Activity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.login, menu);
+        getMenuInflater().inflate(R.menu.twitter, menu);
         return true;
+    }
+
+    public void composeTweet(MenuItem item) {
+        Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
+        startActivity(i);
+    }
+
+    public void logout(MenuItem item) {
+        TwitterClient client = RestClientApp.getRestClient();
+        client.clearAccessToken();
+        finish();
     }
 }
