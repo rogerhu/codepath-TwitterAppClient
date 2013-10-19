@@ -1,5 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import android.text.format.DateUtils;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -95,6 +97,12 @@ public class Tweet extends Model {
     public String getTweet() {
         return this.text;
 
+    }
+
+    public String getTimestamp() {
+        String result;
+        result = (String) DateUtils.getRelativeTimeSpanString(this.created_at.getTime(), System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS);
+        return result;
     }
 //	public String getUserId() {
 //		return userId;

@@ -42,8 +42,11 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
 
         fullName.setText(Html.fromHtml(formattedName));
 
+        TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+        timestamp.setText(tweet.getTimestamp());
+
         TextView bodyView = (TextView) convertView.findViewById(R.id.tweetText);
-        bodyView.setText(tweet.getTweet());
+        bodyView.setText(Html.fromHtml(tweet.getTweet()));
 
         return convertView;
     }
