@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-utils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/universal-image-loader-1.8.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/android-async-http-1.4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/activeandroid-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/scribe.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
