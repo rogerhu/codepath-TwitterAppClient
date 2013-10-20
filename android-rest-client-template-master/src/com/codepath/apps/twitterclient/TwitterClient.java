@@ -1,7 +1,6 @@
-package com.codepath.apps.restclienttemplate;
+package com.codepath.apps.twitterclient;
 
 import org.scribe.builder.api.Api;
-import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
@@ -48,6 +47,11 @@ public class TwitterClient extends OAuthBaseClient {
         if (minId > 0) {
             Log.d("debug", "Requesting max_id=" + minId);
             params.put("max_id", String.valueOf(minId));
+        }
+
+        if (maxId > 0) {
+            Log.d("debug", "Requesting since_id=" + maxId);
+            params.put("since_id", String.valueOf(maxId));
         }
 
         params.put("count", String.valueOf(count));

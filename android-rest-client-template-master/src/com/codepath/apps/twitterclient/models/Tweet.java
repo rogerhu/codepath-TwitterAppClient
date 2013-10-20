@@ -1,11 +1,10 @@
-package com.codepath.apps.restclienttemplate.models;
+package com.codepath.apps.twitterclient.models;
 
 import android.text.format.DateUtils;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.query.Select;
 
 import org.json.JSONArray;
 import org.json.JSONException;
