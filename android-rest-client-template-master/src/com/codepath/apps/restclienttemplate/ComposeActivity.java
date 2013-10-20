@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -22,6 +23,9 @@ import java.util.ArrayList;
  * Created by rhu on 10/19/13.
  */
 public class ComposeActivity extends Activity {
+
+    String text;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
@@ -39,7 +43,7 @@ public class ComposeActivity extends Activity {
             return;
         }
 
-        String text = tweet.getText().toString();
+        text = tweet.getText().toString();
 
         TwitterClient client = RestClientApp.getRestClient();
 
@@ -48,7 +52,14 @@ public class ComposeActivity extends Activity {
             @Override
             public void onSuccess(JSONObject response) {
                 Toast.makeText(getBaseContext(), "Tweet posted!", Toast.LENGTH_SHORT).show();
+                Intent data = new Intent();
+                data.putExtra("text", text);
+                setResult(RESULT_OK, data);
                 finish();
+            }
+
+            public void onFailure(Throwable e, JSONObject json) {
+                e.printStackTrace();
             }
         });
     }

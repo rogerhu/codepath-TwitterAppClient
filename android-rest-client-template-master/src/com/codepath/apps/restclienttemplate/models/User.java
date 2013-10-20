@@ -25,9 +25,6 @@ public class User extends Model {
     @Column(name = "screen_name")
     String screen_name;
 
-    @Column(name = "text")
-    String text;
-
     public User() {
         super();
     }
@@ -42,7 +39,6 @@ public class User extends Model {
             this.profile_image_url = object.getString("profile_image_url");
             this.twitter_id = object.getString("id");
             this.screen_name = object.getString("screen_name");
-            this.text = object.getString("text");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -61,8 +57,16 @@ public class User extends Model {
         return this.screen_name;
     }
 
-    public String getTweet() {
-        return this.text;
+    public void setFullName(String name) {
+        this.name = name;
+    }
+
+    public void setProfileImageUrl(String url) {
+        this.profile_image_url = url;
+    }
+
+    public void setTwitterHandle(String id) {
+        this.twitter_id = id;
     }
 
 }

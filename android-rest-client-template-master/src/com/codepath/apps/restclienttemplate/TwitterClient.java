@@ -5,6 +5,7 @@ import org.scribe.builder.api.FlickrApi;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -28,16 +29,27 @@ public class TwitterClient extends OAuthBaseClient {
     public static final String REST_CONSUMER_KEY = "BbzrLsQgzSXlK4xvVorHwA";       // Change this
     public static final String REST_CONSUMER_SECRET = "O2R7JEgTZ4DnxohnkfyU284Dk3q1VCmNzHKrlPQyUO4"; // Change this
     public static final String REST_CALLBACK_URL = "oauth://cprest"; // Change this (here and in manifest)
-    
+
+    // Defines the handler events for the OAuth flow
+    public static interface OAuthAccessHandler {
+        public void onLoginSuccess();
+        public void onLoginFailure(Exception e);
+    }
+
     public TwitterClient(Context context) {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
     
-    public void getHomeTimeline(int page, int count, AsyncHttpResponseHandler handler) {
+    public void getHomeTimeline(long minId, long maxId, int count, AsyncHttpResponseHandler handler) {
     	String apiUrl = getApiUrl("statuses/home_timeline.json");
         // Can specify query string params directly or through RequestParams.
         RequestParams params = new RequestParams();
-        params.put("page", String.valueOf(page));
+
+        if (minId > 0) {
+            Log.d("debug", "Requesting max_id=" + minId);
+            params.put("max_id", String.valueOf(minId));
+        }
+
         params.put("count", String.valueOf(count));
         client.get(apiUrl, params, handler);
     }
@@ -45,11 +57,27 @@ public class TwitterClient extends OAuthBaseClient {
     public void postTweet(String status, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/update.json");
 
-           RequestParams params = new RequestParams();
+         RequestParams params = new RequestParams();
            params.put("status", status);
 
            client.post(apiUrl, params, handler);
 
+
+    }
+
+    public void getUserSettings(AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("account/settings.json");
+
+        client.get(apiUrl, handler);
+    }
+
+    public void getUserByScreenName(String screenName, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("/users/show.json");
+
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+
+        client.get(apiUrl, params, handler);
 
     }
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

@@ -27,8 +27,8 @@ public class Tweet extends Model {
 	@Column(name = "text")
 	String text;
 	
-	@Column(name = "id_str")
-	String id_str;
+	@Column(name = "post_id")
+	Long post_id;
 	
 	@Column(name = "source")
 	String source;
@@ -50,8 +50,7 @@ public class Tweet extends Model {
             JSONObject jsonUser = object.getJSONObject("user");
             this.user = new User(jsonUser);
             this.text = object.getString("text");
-			this.id_str = object.getString("id_str");
-			this.source = object.getString("source");
+			this.post_id = object.getLong("id");
             creationString = object.getString("created_at");
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -88,6 +87,10 @@ public class Tweet extends Model {
 		
 		return tweets;
 	}
+
+    public Long getPostId() {
+        return this.post_id;
+    }
 	
 	// Getters
     public User getUser() {
@@ -104,6 +107,28 @@ public class Tweet extends Model {
         result = (String) DateUtils.getRelativeTimeSpanString(this.created_at.getTime(), System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS);
         return result;
     }
+
+    // Setters
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setPostId(Long id) {
+        this.post_id = id;
+    }
+
+    public void setCreatedAt(Date date) {
+        this.created_at = date;
+    }
+
+    public void setCreatedAt(Long l) {
+        this.created_at = new Date(l);
+    }
+
+    public void setUser(User u) {
+        this.user = u;
+    }
+
 //	public String getUserId() {
 //		return userId;
 //	}
