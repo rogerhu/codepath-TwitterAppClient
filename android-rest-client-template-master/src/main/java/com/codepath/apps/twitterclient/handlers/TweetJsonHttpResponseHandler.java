@@ -1,5 +1,7 @@
 package com.codepath.apps.twitterclient.handlers;
 
+import android.util.Log;
+
 import com.codepath.apps.twitterclient.TweetAdapter;
 import com.codepath.apps.twitterclient.handlers.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
@@ -46,10 +48,16 @@ public class TweetJsonHttpResponseHandler extends JsonHttpResponseHandler {
                 callbacks.get(j).processItem(tweet);
             }
         }
+        this.onPostExecute();
+    }
+
+    public void onPostExecute() {
+
     }
 
     @Override
     public void onFailure(Throwable e, String errorResponse) {
+        Log.d("debug", "Failed request" + errorResponse);
         e.printStackTrace();
     }
 

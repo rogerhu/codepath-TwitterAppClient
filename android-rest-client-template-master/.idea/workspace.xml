@@ -10,13 +10,12 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6644dd8f-c4d8-4367-89ae-5ae0a6830d2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PullToRefresh/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PullToRefresh/src/main/java/eu/erikw/PullToRefreshListView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PullToRefresh/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/settings.gradle" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/.name" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/compiler.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/copyright/profiles_settings.xml" afterPath="" />
@@ -29,7 +28,12 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/PullToRefresh-eclipse.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/drawable-hdpi/ptr_pulltorefresh_arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/drawable-ldpi/ptr_pulltorefresh_arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/drawable-mdpi/ptr_pulltorefresh_arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/layout/ptr_header.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/values/ptr_default_style.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PullToRefresh/res/values/strings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/src/com/codepath/apps/twitterclient/ComposeActivity.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/src/com/codepath/apps/twitterclient/EndlessScrollListener.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/src/com/codepath/apps/twitterclient/LoginActivity.java" afterPath="" />
@@ -69,15 +73,8 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-mdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-xhdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/build/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/source/r/debug/com/codepath/apps/twitterclient/R.java" afterPath="$PROJECT_DIR$/build/source/r/debug/com/codepath/apps/twitterclient/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/res/all/debug/layout/activity_twitter_stream.xml" afterPath="$PROJECT_DIR$/build/res/all/debug/layout/activity_twitter_stream.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_twitter_stream.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_twitter_stream.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master.iml" afterPath="$PROJECT_DIR$/android-rest-client-template-master.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/res/all/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetJsonHttpResponseHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetJsonHttpResponseHandler.java" />
     </list>
     <ignored path="android-rest-client-template-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -133,22 +130,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" line="40" class="com.codepath.apps.twitterclient.TimelineActivity" package="com.codepath.apps.twitterclient">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" line="51" class="com.codepath.apps.twitterclient.TimelineActivity" package="com.codepath.apps.twitterclient">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" line="42" class="com.codepath.apps.twitterclient.TimelineActivity" package="com.codepath.apps.twitterclient">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -173,63 +155,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gradlew.bat" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradlew.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="17" selection-start="490" selection-end="490" vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="1440">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityThread.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/android/app/ActivityThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2210" column="0" selection-start="92172" selection-end="92172" vertical-scroll-proportion="0.0" vertical-offset="30996" max-vertical-offset="74655">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZygoteInit.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/com/android/internal/os/ZygoteInit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="742" column="0" selection-start="25458" selection-end="25458" vertical-scroll-proportion="0.0" vertical-offset="10216" max-vertical-offset="10740">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TimelineActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="11" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="2025">
+            <state line="109" column="44" selection-start="3209" selection-end="3209" vertical-scroll-proportion="-15.535714" vertical-offset="990" max-vertical-offset="2130">
               <folding>
-                <element signature="e#1584#1777#0" expanded="true" />
-                <element signature="e#1766#1767#0" expanded="true" />
-                <element signature="e#1817#2004#0" expanded="true" />
-                <element signature="e#3038#3256#0" expanded="true" />
-                <element signature="e#3237#3238#0" expanded="true" />
-                <element signature="e#3490#3669#0" expanded="true" />
-                <element signature="e#3658#3659#0" expanded="true" />
+                <element signature="e#1623#1816#0" expanded="true" />
+                <element signature="e#1805#1806#0" expanded="true" />
+                <element signature="e#1856#2043#0" expanded="true" />
+                <element signature="e#2032#2033#0" expanded="true" />
+                <element signature="e#3012#3233#0" expanded="true" />
+                <element signature="e#3222#3223#0" expanded="true" />
+                <element signature="e#3264#3482#0" expanded="true" />
+                <element signature="e#3463#3464#0" expanded="true" />
+                <element signature="e#3716#3895#0" expanded="true" />
+                <element signature="e#3884#3885#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TwitterClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TwitterClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1380">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TweetAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TweetAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="13" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TweetCallbackHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetCallbackHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TweetJsonHttpResponseHandler.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetJsonHttpResponseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="57" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.7198642" vertical-offset="311" max-vertical-offset="915">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonHttpResponseHandler.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/libs/android-async-http-1.4.3.jar!/com/loopj/android/http/JsonHttpResponseHandler.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="555">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestClientApp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/RestClientApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PullToRefresh/src/main/java/eu/erikw/PullToRefreshListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="10" selection-start="9504" selection-end="9504" vertical-scroll-proportion="0.629771" vertical-offset="3285" max-vertical-offset="7665">
+            <state line="261" column="10" selection-start="9504" selection-end="9504" vertical-scroll-proportion="0.0" vertical-offset="3285" max-vertical-offset="7665">
               <folding />
             </state>
           </provider>
@@ -251,30 +254,6 @@
           </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="39" selection-start="431" selection-end="431" vertical-scroll-proportion="-5.6896553" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_login.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_compose.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_compose.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="915">
               <folding />
             </state>
           </provider>
@@ -997,6 +976,7 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_twitter_stream.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetJsonHttpResponseHandler.java" />
       </list>
     </option>
   </component>
@@ -1176,6 +1156,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitterclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-rest-client-template-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-rest-client-template-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="PullToRefresh" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1257,12 +1267,13 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="gradle.compiler" />
+    <property name="options.lastSelected" value="editor.preferences.import" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Real_Androidx86" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1456,7 +1467,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="52" width="1605" height="996" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1464,13 +1475,13 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897195" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997833" sideWeight="0.49968848" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997833" sideWeight="0.50031155" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997833" sideWeight="0.49968848" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936078" sideWeight="0.09781931" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.9021807" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936078" sideWeight="0.9021807" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1498,48 +1509,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/android/view/LayoutInflater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="626" column="9" selection-start="25787" selection-end="25787" vertical-scroll-proportion="0.0" vertical-offset="8505" max-vertical-offset="13560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PullToRefresh/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PullToRefresh/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
@@ -1605,24 +1574,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PullToRefresh/src/main/java/eu/erikw/PullToRefreshListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="261" column="10" selection-start="9504" selection-end="9504" vertical-scroll-proportion="0.0" vertical-offset="3285" max-vertical-offset="7665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TwitterClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TweetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="13" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetCallbackHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/RestClientApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/android-async-http-1.4.3.jar!/com/loopj/android/http/JsonHttpResponseHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="11" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="2025">
+        <state line="109" column="44" selection-start="3209" selection-end="3209" vertical-scroll-proportion="-15.535714" vertical-offset="990" max-vertical-offset="2130">
           <folding>
-            <element signature="e#1584#1777#0" expanded="true" />
-            <element signature="e#1766#1767#0" expanded="true" />
-            <element signature="e#1817#2004#0" expanded="true" />
-            <element signature="e#3038#3256#0" expanded="true" />
-            <element signature="e#3237#3238#0" expanded="true" />
-            <element signature="e#3490#3669#0" expanded="true" />
-            <element signature="e#3658#3659#0" expanded="true" />
+            <element signature="e#1623#1816#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1856#2043#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#3012#3233#0" expanded="true" />
+            <element signature="e#3222#3223#0" expanded="true" />
+            <element signature="e#3264#3482#0" expanded="true" />
+            <element signature="e#3463#3464#0" expanded="true" />
+            <element signature="e#3716#3895#0" expanded="true" />
+            <element signature="e#3884#3885#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PullToRefresh/src/main/java/eu/erikw/PullToRefreshListView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetJsonHttpResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="10" selection-start="9504" selection-end="9504" vertical-scroll-proportion="0.629771" vertical-offset="3285" max-vertical-offset="7665">
+        <state line="59" column="57" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.7198642" vertical-offset="311" max-vertical-offset="915">
           <folding />
         </state>
       </provider>

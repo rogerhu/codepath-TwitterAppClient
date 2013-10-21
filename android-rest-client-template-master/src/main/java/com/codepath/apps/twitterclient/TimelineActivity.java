@@ -3,6 +3,7 @@ package com.codepath.apps.twitterclient;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -28,6 +29,7 @@ public class TimelineActivity extends Activity {
 
     TweetAdapter tweetAdapter;
     TwitterClient client;
+    PullToRefreshListView lvItems;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class TimelineActivity extends Activity {
         });
 */
 
-       PullToRefreshListView lvItems = (PullToRefreshListView) findViewById(R.id.listView);
+        lvItems = (PullToRefreshListView) findViewById(R.id.listView);
         lvItems.setAdapter(tweetAdapter);
         lvItems.setOnScrollListener(new EndlessScrollListener() {
             @Override
@@ -101,7 +103,13 @@ public class TimelineActivity extends Activity {
     }
 
     public void refreshTweets() {
-        TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler();
+        TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler() {
+            @Override
+            public void onPostExecute() {
+                Log.d("debug", "Refresh complete");
+                lvItems.onRefreshComplete();
+            }
+        };
 
         handler.addCallback(new TweetCallbackHandler() {
                     @Override
