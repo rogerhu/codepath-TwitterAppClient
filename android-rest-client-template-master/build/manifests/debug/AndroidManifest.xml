@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.codepath.apps.twitterclient">
+
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="18"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.codepath.apps.twitterclient.RestClientApp" android:theme="@style/AppTheme">
+        <meta-data android:name="AA_DB_NAME" android:value="RestClient.db"/>
+        <meta-data android:name="AA_DB_VERSION" android:value="1"/>
+
+        <activity android:label="@string/app_name" android:name="com.codepath.apps.twitterclient.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:host="cprest" android:scheme="oauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.codepath.apps.twitterclient.TimelineActivity"/>
+        <activity android:name="com.codepath.apps.twitterclient.ComposeActivity"/>
+    </application>
+
+</manifest>

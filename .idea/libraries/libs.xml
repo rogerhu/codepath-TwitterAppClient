@@ -8,11 +8,15 @@
       <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/activeandroid-3.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/scribe.jar!/" />
       <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/PullToRefresh-eclipse.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/codepath-oauth-0.2.4.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/android-async-http-1.4.3-sources.jar!/" />
+      <root url="file://$USER_HOME$/projects/java/scribe-java/src/main/java" />
+      <root url="file://$USER_HOME$/projects/java/scribe-java/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/android-rest-client-template-master/libs/PullToRefresh-eclipse.jar!/" />
     </SOURCES>
   </library>
 </component>
