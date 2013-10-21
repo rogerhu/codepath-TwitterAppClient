@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="PullToRefresh-eclipse-no-R">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/PullToRefresh-eclipse-no-R.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/PullToRefresh-eclipse-no-R.jar!/" />
+    </SOURCES>
+  </library>
+</component>

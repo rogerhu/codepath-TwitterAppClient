@@ -1,6 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger>
 
+    <dataSet config="AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar" >
+        <source path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res" >
+            <file
+                name="ptr_header"
+                path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/layout/ptr_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ptr_pulltorefresh_arrow"
+                path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/drawable-hdpi/ptr_pulltorefresh_arrow.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ptr_pulltorefresh_arrow"
+                path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/drawable-mdpi/ptr_pulltorefresh_arrow.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/values/values.xml"
+                qualifiers="" >
+                <string name="ptr_pull_to_refresh" >Pull to refresh
+                </string>
+
+                <style name="ptr_header" >
+                    <item name="android:layout_width">
+fill_parent
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:padding">
+5dp
+                    </item>
+                    <item name="android:gravity">
+center_vertical
+                    </item>
+                </style>
+
+                <style
+                    name="ptr_spinner"
+                    parent="@android:style/Widget.ProgressBar.Small" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:layout_centerVertical">
+true
+                    </item>
+                    <item name="android:indeterminate">
+true
+                    </item>
+                    <item name="android:layout_marginLeft">
+25dp
+                    </item>
+                </style>
+
+                <style name="ptr_headerContainer" >
+                    <item name="android:layout_width">
+fill_parent
+                    </item>
+                    <item name="android:layout_height">
+0px
+                    </item>
+                    <item name="android:gravity">
+bottom
+                    </item>
+                </style>
+
+                <string name="ptr_last_updated" >Updated: %1$s
+                </string>
+
+                <style
+                    name="ptr_last_updated"
+                    parent="ptr_text" >
+                    <item name="android:textStyle">
+normal
+                    </item>
+                    <item name="android:visibility">
+gone
+                    </item>
+                    <item name="android:layout_weight">
+1
+                    </item>
+                    <item name="android:textAppearance">
+?android:attr/textAppearanceSmall
+                    </item>
+                    <item name="android:layout_below">
+@+id/ptr_id_text
+                    </item>
+                </style>
+
+                <style name="ptr_text" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+fill_parent
+                    </item>
+                    <item name="android:gravity">
+center
+                    </item>
+                    <item name="android:layout_weight">
+1
+                    </item>
+                    <item name="android:textAppearance">
+?android:attr/textAppearanceMedium
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:textColor">
+@android:color/black
+                    </item>
+                </style>
+
+                <string name="ptr_refreshing" >Refreshing…
+                </string>
+
+                <style name="ptr_textwrapper" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+fill_parent
+                    </item>
+                    <item name="android:layout_centerInParent">
+true
+                    </item>
+                    <item name="android:orientation">
+vertical
+                    </item>
+                    <item name="android:gravity">
+center_horizontal
+                    </item>
+                </style>
+
+                <style name="ptr_arrow" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:layout_centerVertical">
+true
+                    </item>
+                    <item name="android:src">
+@drawable/ptr_pulltorefresh_arrow
+                    </item>
+                    <item name="android:layout_marginLeft">
+25dp
+                    </item>
+                </style>
+
+                <string name="ptr_release_to_refresh" >Release to refresh
+                </string>
+            </file>
+            <file
+                name="ptr_pulltorefresh_arrow"
+                path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/drawable-ldpi/ptr_pulltorefresh_arrow.png"
+                qualifiers="ldpi"
+                type="drawable" />
+        </source>
+    </dataSet>
     <dataSet config="ComAndroidSupportAppcompatV71800.aar" >
         <source path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res" >
             <file
@@ -46,6 +212,10 @@ false
                     parent="android:Widget.Holo.Light.ActionBar.TabView" />
 
                 <style
+                    name="TextAppearance.AppCompat.Widget.Base.ActionMode.Title.Inverse"
+                    parent="android:TextAppearance.Holo.Widget.ActionMode.Title.Inverse" />
+
+                <style
                     name="TextAppearance.AppCompat.Widget.Base.ActionMode.Title"
                     parent="android:TextAppearance.Holo.Widget.ActionMode.Title" />
 
@@ -54,8 +224,24 @@ false
                     parent="android:TextAppearance.Holo.Widget.ActionBar.Title" />
 
                 <style
+                    name="Widget.AppCompat.Light.Base.ActionBar.Solid"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" />
+
+                <style
+                    name="Widget.AppCompat.Base.ListView.DropDown"
+                    parent="android:Widget.Holo.ListView.DropDown" />
+
+                <style
                     name="Widget.AppCompat.Base.Spinner"
                     parent="android:Widget.Holo.Spinner" />
+
+                <style
+                    name="Widget.AppCompat.Base.ActionBar.TabView"
+                    parent="android:Widget.Holo.ActionBar.TabView" />
+
+                <style
+                    name="Widget.AppCompat.Base.ListView.Menu"
+                    parent="android:Widget.ListView.Menu" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.Solid.Inverse"
@@ -125,20 +311,28 @@ false
                     parent="android:TextAppearance.Holo.Widget.ActionBar.Subtitle" />
 
                 <style
+                    name="Widget.AppCompat.Light.Base.ActionBar.TabBar"
+                    parent="android:Widget.Holo.Light.ActionBar.TabBar" />
+
+                <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabText"
                     parent="android:Widget.Holo.Light.ActionBar.TabText" />
 
                 <style
-                    name="Widget.AppCompat.Base.ActionBar.Solid"
-                    parent="android:Widget.Holo.ActionBar.Solid" />
+                    name="TextAppearance.AppCompat.Base.Widget.PopupMenu.Large"
+                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
+
+                <style
+                    name="Widget.AppCompat.Light.Base.ActionMode.Inverse"
+                    parent="android:Widget.Holo.Light.ActionMode.Inverse" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionButton.CloseMode"
                     parent="android:Widget.Holo.Light.ActionButton.CloseMode" />
 
                 <style
-                    name="Widget.AppCompat.Light.Base.ActionMode.Inverse"
-                    parent="android:Widget.Holo.Light.ActionMode.Inverse" />
+                    name="Widget.AppCompat.Base.ActionBar.Solid"
+                    parent="android:Widget.Holo.ActionBar.Solid" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionButton"
@@ -159,6 +353,14 @@ false
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabText.Inverse"
                     parent="android:Widget.Holo.Light.ActionBar.TabText.Inverse" />
+
+                <style
+                    name="TextAppearance.AppCompat.Base.Widget.PopupMenu.Small"
+                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Small" />
+
+                <style
+                    name="TextAppearance.AppCompat.Light.Base.Widget.PopupMenu.Large"
+                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
 
                 <style
                     name="Widget.AppCompat.Base.ActivityChooserView"
@@ -185,147 +387,12 @@ middle
                     parent="@android:TextAppearance.Holo.SearchResult.Title" />
 
                 <style
-                    name="Widget.AppCompat.Light.Base.Spinner"
-                    parent="android:Widget.Holo.Light.Spinner" />
-
-                <style
-                    name="Theme.Base.AppCompat.Light"
-                    parent="android:Theme.Holo.Light" >
-
-                    <!-- Copy system flag values for our use -->
-                    <item name="windowActionBar">
-?android:attr/windowActionBar
-                    </item>
-                    <item name="actionBarSize">
-?android:attr/actionBarSize
-                    </item>
-                    <item name="actionBarItemBackground">
-?android:attr/actionBarItemBackground
-                    </item>
-                    <item name="selectableItemBackground">
-?android:attr/selectableItemBackground
-                    </item>
-                    <item name="actionButtonStyle">
-?android:attr/actionButtonStyle
-                    </item>
-                    <item name="dividerVertical">
-?android:attr/dividerVertical
-                    </item>
-                    <item name="dividerHorizontal">
-?android:attr/dividerHorizontal
-                    </item>
-                    <item name="actionBarWidgetTheme">
-@null
-                    </item>
-                    <item name="android:actionBarWidgetTheme">
-?attr/actionBarWidgetTheme
-                    </item>
-
-                    <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
-                    <item name="listPreferredItemHeight">
-?android:attr/listPreferredItemHeight
-                    </item>
-                    <item name="listPreferredItemHeightSmall">
-?android:attr/listPreferredItemHeightSmall
-                    </item>
-                    <item name="listPreferredItemHeightLarge">
-?android:attr/listPreferredItemHeightLarge
-                    </item>
-                    <item name="listPreferredItemPaddingLeft">
-?android:attr/listPreferredItemPaddingLeft
-                    </item>
-                    <item name="listPreferredItemPaddingRight">
-?android:attr/listPreferredItemPaddingRight
-                    </item>
-
-                    <!-- Attributes populated from the framework to be read by apps -->
-                    <item name="buttonBarStyle">
-?android:attr/buttonBarStyle
-                    </item>
-                    <item name="buttonBarButtonStyle">
-?android:attr/buttonBarButtonStyle
-                    </item>
-                </style>
-
-                <style
-                    name="Widget.AppCompat.Base.DropDownItem.Spinner"
-                    parent="android:Widget.Holo.DropDownItem.Spinner" />
-
-                <style
-                    name="Widget.AppCompat.Light.Base.PopupMenu"
-                    parent="android:Widget.Holo.Light.PopupMenu" />
-
-                <style
-                    name="Widget.AppCompat.Base.ActionBar.TabBar"
-                    parent="android:Widget.Holo.ActionBar.TabBar" />
-
-                <style
-                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title.Inverse"
-                    parent="android:TextAppearance.Holo.Widget.ActionBar.Title.Inverse" />
-
-                <style
-                    name="Widget.AppCompat.Light.Base.ActionBar"
-                    parent="android:Widget.Holo.Light.ActionBar" />
-
-                <style
-                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Menu"
-                    parent="android:TextAppearance.Holo.Widget.ActionBar.Menu" />
-
-                <style
-                    name="Widget.AppCompat.Base.ActionButton.CloseMode"
-                    parent="android:Widget.Holo.ActionButton.CloseMode" />
-
-                <style
-                    name="Widget.AppCompat.Light.Base.ActionBar.TabBar.Inverse"
-                    parent="android:Widget.Holo.Light.ActionBar.TabBar.Inverse" />
-
-                <style
-                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle.Inverse"
-                    parent="android:TextAppearance.Holo.Widget.ActionBar.Subtitle.Inverse" />
-
-                <style
-                    name="Widget.AppCompat.Base.ActionBar"
-                    parent="android:Widget.Holo.ActionBar" />
-
-                <style
-                    name="TextAppearance.AppCompat.Widget.Base.ActionMode.Title.Inverse"
-                    parent="android:TextAppearance.Holo.Widget.ActionMode.Title.Inverse" />
-
-                <style
-                    name="Widget.AppCompat.Light.Base.ActionBar.Solid"
-                    parent="android:Widget.Holo.Light.ActionBar.Solid" />
-
-                <style
-                    name="Widget.AppCompat.Base.ListView.DropDown"
-                    parent="android:Widget.Holo.ListView.DropDown" />
-
-                <style
-                    name="Widget.AppCompat.Base.ActionBar.TabView"
-                    parent="android:Widget.Holo.ActionBar.TabView" />
-
-                <style
-                    name="Widget.AppCompat.Base.ListView.Menu"
-                    parent="android:Widget.ListView.Menu" />
-
-                <style
-                    name="Widget.AppCompat.Light.Base.ActionBar.TabBar"
-                    parent="android:Widget.Holo.Light.ActionBar.TabBar" />
-
-                <style
-                    name="TextAppearance.AppCompat.Base.Widget.PopupMenu.Large"
-                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
-
-                <style
-                    name="TextAppearance.AppCompat.Base.Widget.PopupMenu.Small"
-                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Small" />
-
-                <style
-                    name="TextAppearance.AppCompat.Light.Base.Widget.PopupMenu.Large"
-                    parent="android:TextAppearance.Holo.Widget.PopupMenu.Large" />
-
-                <style
                     name="Widget.AppCompat.Light.Base.ActionButton.Overflow"
                     parent="android:Widget.Holo.Light.ActionButton.Overflow" />
+
+                <style
+                    name="Widget.AppCompat.Light.Base.Spinner"
+                    parent="android:Widget.Holo.Light.Spinner" />
 
                 <style
                     name="TextAppearance.AppCompat.Base.SearchResult.Subtitle"
@@ -407,8 +474,87 @@ middle
                     parent="android:TextAppearance.Holo.Widget.ActionMode.Subtitle.Inverse" />
 
                 <style
+                    name="Widget.AppCompat.Base.DropDownItem.Spinner"
+                    parent="android:Widget.Holo.DropDownItem.Spinner" />
+
+                <style
+                    name="Theme.Base.AppCompat.Light"
+                    parent="android:Theme.Holo.Light" >
+
+                    <!-- Copy system flag values for our use -->
+                    <item name="windowActionBar">
+?android:attr/windowActionBar
+                    </item>
+                    <item name="actionBarSize">
+?android:attr/actionBarSize
+                    </item>
+                    <item name="actionBarItemBackground">
+?android:attr/actionBarItemBackground
+                    </item>
+                    <item name="selectableItemBackground">
+?android:attr/selectableItemBackground
+                    </item>
+                    <item name="actionButtonStyle">
+?android:attr/actionButtonStyle
+                    </item>
+                    <item name="dividerVertical">
+?android:attr/dividerVertical
+                    </item>
+                    <item name="dividerHorizontal">
+?android:attr/dividerHorizontal
+                    </item>
+                    <item name="actionBarWidgetTheme">
+@null
+                    </item>
+                    <item name="android:actionBarWidgetTheme">
+?attr/actionBarWidgetTheme
+                    </item>
+
+                    <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+                    <item name="listPreferredItemHeight">
+?android:attr/listPreferredItemHeight
+                    </item>
+                    <item name="listPreferredItemHeightSmall">
+?android:attr/listPreferredItemHeightSmall
+                    </item>
+                    <item name="listPreferredItemHeightLarge">
+?android:attr/listPreferredItemHeightLarge
+                    </item>
+                    <item name="listPreferredItemPaddingLeft">
+?android:attr/listPreferredItemPaddingLeft
+                    </item>
+                    <item name="listPreferredItemPaddingRight">
+?android:attr/listPreferredItemPaddingRight
+                    </item>
+
+                    <!-- Attributes populated from the framework to be read by apps -->
+                    <item name="buttonBarStyle">
+?android:attr/buttonBarStyle
+                    </item>
+                    <item name="buttonBarButtonStyle">
+?android:attr/buttonBarButtonStyle
+                    </item>
+                </style>
+
+                <style
+                    name="Widget.AppCompat.Light.Base.PopupMenu"
+                    parent="android:Widget.Holo.Light.PopupMenu" />
+
+                <style
+                    name="Widget.AppCompat.Base.ActionBar.TabBar"
+                    parent="android:Widget.Holo.ActionBar.TabBar" />
+
+                <style
                     name="TextAppearance.AppCompat.Base.SearchResult.Title"
                     parent="@android:TextAppearance.Holo.SearchResult.Title" />
+
+                <style
+                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title.Inverse"
+                    parent="android:TextAppearance.Holo.Widget.ActionBar.Title.Inverse" />
+
+                <style
+                    name="Widget.AppCompat.Light.Base.ActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar" />
 
                 <style
                     name="Widget.AppCompat.Base.PopupMenu"
@@ -419,8 +565,28 @@ middle
                     parent="@android:TextAppearance.Holo.SearchResult.Subtitle" />
 
                 <style
+                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Menu"
+                    parent="android:TextAppearance.Holo.Widget.ActionBar.Menu" />
+
+                <style
+                    name="Widget.AppCompat.Base.ActionButton.CloseMode"
+                    parent="android:Widget.Holo.ActionButton.CloseMode" />
+
+                <style
                     name="Widget.AppCompat.Base.ActionButton.Overflow"
                     parent="android:Widget.Holo.ActionButton.Overflow" />
+
+                <style
+                    name="Widget.AppCompat.Light.Base.ActionBar.TabBar.Inverse"
+                    parent="android:Widget.Holo.Light.ActionBar.TabBar.Inverse" />
+
+                <style
+                    name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle.Inverse"
+                    parent="android:TextAppearance.Holo.Widget.ActionBar.Subtitle.Inverse" />
+
+                <style
+                    name="Widget.AppCompat.Base.ActionBar"
+                    parent="android:Widget.Holo.ActionBar" />
             </file>
             <file
                 path="/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w500dp/values.xml"
@@ -2437,10 +2603,6 @@ wrap_content
                     name="TextAppearance.AppCompat.Widget.PopupMenu.Large"
                     parent="TextAppearance.AppCompat.Base.Widget.PopupMenu.Large" />
 
-                <attr
-                    name="listPreferredItemHeightSmall"
-                    format="dimension" />
-
                 <declare-styleable name="MenuItem" >
 
                     <!-- The ID of the item. -->
@@ -2578,6 +2740,10 @@ wrap_content
                         name="actionProviderClass"
                         format="string" />
                 </declare-styleable>
+
+                <attr
+                    name="listPreferredItemHeightSmall"
+                    format="dimension" />
 
                 <style
                     name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"

@@ -852,6 +852,7 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_content_new=0x7f020057;
         public static final int ic_launcher=0x7f020058;
+        public static final int ptr_pulltorefresh_arrow=0x7f020059;
     }
     public static final class id {
         public static final int action_bar=0x7f07001a;
@@ -867,7 +868,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f07002f;
         public static final int action_mode_bar_stub=0x7f07002e;
         public static final int action_mode_close_button=0x7f070022;
-        public static final int action_settings=0x7f07004a;
+        public static final int action_settings=0x7f070050;
         public static final int activity_chooser_view_content=0x7f070023;
         public static final int always=0x7f07000f;
         public static final int beginning=0x7f07000a;
@@ -899,6 +900,12 @@ containing a value of this type.
         public static final int normal=0x7f070000;
         public static final int progress_circular=0x7f070034;
         public static final int progress_horizontal=0x7f070035;
+        public static final int ptr_id_header=0x7f07004a;
+        public static final int ptr_id_image=0x7f07004b;
+        public static final int ptr_id_last_updated=0x7f07004f;
+        public static final int ptr_id_spinner=0x7f07004c;
+        public static final int ptr_id_text=0x7f07004e;
+        public static final int ptr_id_textwrapper=0x7f07004d;
         public static final int radio=0x7f07002d;
         public static final int right_container=0x7f070032;
         public static final int right_icon=0x7f070033;
@@ -962,7 +969,8 @@ containing a value of this type.
         public static final int activity_login=0x7f030019;
         public static final int activity_twitter_stream=0x7f03001a;
         public static final int item_tweet=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int ptr_header=0x7f03001c;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
     }
     public static final class menu {
         public static final int login=0x7f0c0000;
@@ -988,7 +996,11 @@ containing a value of this type.
         public static final int hello_world=0x7f0a0010;
         public static final int login_label=0x7f0a0011;
         public static final int logout=0x7f0a0012;
-        public static final int tweet=0x7f0a0013;
+        public static final int ptr_last_updated=0x7f0a0013;
+        public static final int ptr_pull_to_refresh=0x7f0a0014;
+        public static final int ptr_refreshing=0x7f0a0015;
+        public static final int ptr_release_to_refresh=0x7f0a0016;
+        public static final int tweet=0x7f0a0017;
     }
     public static final class style {
         /** 
@@ -1130,6 +1142,13 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0b007e;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0b007f;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b0080;
+        public static final int ptr_arrow=0x7f0b0081;
+        public static final int ptr_header=0x7f0b0082;
+        public static final int ptr_headerContainer=0x7f0b0083;
+        public static final int ptr_last_updated=0x7f0b0084;
+        public static final int ptr_spinner=0x7f0b0085;
+        public static final int ptr_text=0x7f0b0086;
+        public static final int ptr_textwrapper=0x7f0b0087;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

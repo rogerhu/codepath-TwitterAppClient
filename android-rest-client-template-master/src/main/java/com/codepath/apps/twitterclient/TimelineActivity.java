@@ -35,8 +35,10 @@ public class TimelineActivity extends Activity {
 
         tweetAdapter = new TweetAdapter(getBaseContext(), new ArrayList<Tweet>());
 
+        client = RestClientApp.getRestClient();
+        this.loadMore();
 
-        ListView lvItems = (ListView) findViewById(R.id.listView);
+/*        ListView lvItems = (ListView) findViewById(R.id.listView);
         lvItems.setAdapter(tweetAdapter);
 
         lvItems.setOnScrollListener(new EndlessScrollListener() {
@@ -45,11 +47,9 @@ public class TimelineActivity extends Activity {
                 TimelineActivity.this.loadMore();
             }
         });
+*/
 
-        client = RestClientApp.getRestClient();
-        this.loadMore();
-
-/*        PullToRefreshListView lvItems = (PullToRefreshListView) findViewById(R.id.listView);
+       PullToRefreshListView lvItems = (PullToRefreshListView) findViewById(R.id.listView);
         lvItems.setAdapter(tweetAdapter);
         lvItems.setOnScrollListener(new EndlessScrollListener() {
             @Override
@@ -64,8 +64,6 @@ public class TimelineActivity extends Activity {
                 TimelineActivity.this.refreshTweets();
             }
         });
-        client = RestClientApp.getRestClient();
-        this.loadMore();*/
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
