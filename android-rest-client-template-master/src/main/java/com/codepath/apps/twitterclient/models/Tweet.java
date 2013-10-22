@@ -100,32 +100,10 @@ public class Tweet extends Model implements BaseModel {
 	        } catch (InstantiationException e) {
 		        e.printStackTrace();
 	        }
-//            Tweet tweet = createOrUpdate(tweetJson);
         }
 
         return tweets;
     }
-
-
-	/*
-    public static Tweet createOrUpdate(JSONObject tweetJson) {
-        Long postId = getPostId(tweetJson);
-        List<Tweet> tweets = new Select().from(Tweet.class).where("post_id = ?", postId).execute();
-
-        if (tweets.size() > 0) {
-            Tweet entry = tweets.get(0);
-            Log.d("debug", "Found existing entry...updating" + entry.getId());
-            entry.parseJSON(tweetJson);
-            entry.save();
-            return entry;
-
-        } else {
-            Tweet tweet = new Tweet(tweetJson);
-            tweet.save();
-            return tweet;
-        }
-
-    }*/
 
     public Long getPostId() {
         return this.post_id;

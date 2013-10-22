@@ -15,9 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6644dd8f-c4d8-4367-89ae-5ae0a6830d2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/BaseModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/ModelCreator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/handlers/TweetPersisterCallbackHandler.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/.name" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/compiler.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../.idea/copyright/profiles_settings.xml" afterPath="" />
@@ -75,12 +72,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-mdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-xhdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../out/res-cache/android-rest-client-template-master/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/classes.jar" afterPath="$PROJECT_DIR$/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" afterPath="$PROJECT_DIR$/PullToRefresh/PullToRefresh.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/TimelineActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android-rest-client-template-master.iml" afterPath="$PROJECT_DIR$/android-rest-client-template-master.iml" />
     </list>
     <ignored path="android-rest-client-template-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -203,7 +195,7 @@
       <file leaf-file-name="User.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="909" selection-end="909" vertical-scroll-proportion="0.4028436" vertical-offset="391" max-vertical-offset="1598">
+            <state line="23" column="0" selection-start="467" selection-end="467" vertical-scroll-proportion="0.37598735" vertical-offset="0" max-vertical-offset="1598">
               <folding>
                 <element signature="e#1298#1299#0" expanded="true" />
                 <element signature="e#1343#1344#0" expanded="true" />
@@ -236,23 +228,23 @@
       <file leaf-file-name="Tweet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="18" selection-start="3569" selection-end="3569" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="3400">
+            <state line="66" column="0" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="3026">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3513#3514#0" expanded="true" />
-                <element signature="e#3548#3549#0" expanded="true" />
-                <element signature="e#3862#3863#0" expanded="true" />
-                <element signature="e#3889#3890#0" expanded="true" />
-                <element signature="e#3921#3922#0" expanded="true" />
-                <element signature="e#3954#3955#0" expanded="true" />
-                <element signature="e#4243#4244#0" expanded="true" />
-                <element signature="e#4275#4276#0" expanded="true" />
-                <element signature="e#4313#4314#0" expanded="true" />
-                <element signature="e#4346#4347#0" expanded="true" />
-                <element signature="e#4389#4390#0" expanded="true" />
-                <element signature="e#4427#4428#0" expanded="true" />
-                <element signature="e#4547#4548#0" expanded="true" />
-                <element signature="e#4576#4577#0" expanded="true" />
+                <element signature="e#2862#2863#0" expanded="true" />
+                <element signature="e#2897#2898#0" expanded="true" />
+                <element signature="e#3211#3212#0" expanded="true" />
+                <element signature="e#3238#3239#0" expanded="true" />
+                <element signature="e#3270#3271#0" expanded="true" />
+                <element signature="e#3303#3304#0" expanded="true" />
+                <element signature="e#3592#3593#0" expanded="true" />
+                <element signature="e#3624#3625#0" expanded="true" />
+                <element signature="e#3662#3663#0" expanded="true" />
+                <element signature="e#3695#3696#0" expanded="true" />
+                <element signature="e#3738#3739#0" expanded="true" />
+                <element signature="e#3776#3777#0" expanded="true" />
+                <element signature="e#3896#3897#0" expanded="true" />
+                <element signature="e#3925#3926#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1035,8 +1027,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/ModelFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/ModelCreator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/BaseModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java" />
       </list>
     </option>
   </component>
@@ -1558,7 +1550,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1431" y="24" width="1615" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1572,7 +1564,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843652" sideWeight="0.4990712" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30430222" sideWeight="0.87801856" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30430222" sideWeight="0.87801856" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1698,30 +1690,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/Tweet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="18" selection-start="3569" selection-end="3569" vertical-scroll-proportion="0.0" vertical-offset="1989" max-vertical-offset="3400">
+        <state line="66" column="0" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="3026">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3513#3514#0" expanded="true" />
-            <element signature="e#3548#3549#0" expanded="true" />
-            <element signature="e#3862#3863#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3921#3922#0" expanded="true" />
-            <element signature="e#3954#3955#0" expanded="true" />
-            <element signature="e#4243#4244#0" expanded="true" />
-            <element signature="e#4275#4276#0" expanded="true" />
-            <element signature="e#4313#4314#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4389#4390#0" expanded="true" />
-            <element signature="e#4427#4428#0" expanded="true" />
-            <element signature="e#4547#4548#0" expanded="true" />
-            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+            <element signature="e#2897#2898#0" expanded="true" />
+            <element signature="e#3211#3212#0" expanded="true" />
+            <element signature="e#3238#3239#0" expanded="true" />
+            <element signature="e#3270#3271#0" expanded="true" />
+            <element signature="e#3303#3304#0" expanded="true" />
+            <element signature="e#3592#3593#0" expanded="true" />
+            <element signature="e#3624#3625#0" expanded="true" />
+            <element signature="e#3662#3663#0" expanded="true" />
+            <element signature="e#3695#3696#0" expanded="true" />
+            <element signature="e#3738#3739#0" expanded="true" />
+            <element signature="e#3776#3777#0" expanded="true" />
+            <element signature="e#3896#3897#0" expanded="true" />
+            <element signature="e#3925#3926#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codepath/apps/twitterclient/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="909" selection-end="909" vertical-scroll-proportion="0.4028436" vertical-offset="391" max-vertical-offset="1598">
+        <state line="23" column="0" selection-start="467" selection-end="467" vertical-scroll-proportion="0.37598735" vertical-offset="0" max-vertical-offset="1598">
           <folding>
             <element signature="e#1298#1299#0" expanded="true" />
             <element signature="e#1343#1344#0" expanded="true" />
