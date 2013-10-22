@@ -25,121 +25,118 @@ import eu.erikw.PullToRefreshListView;
  */
 public class TimelineActivity extends Activity {
 
-    private int TWEET_PER_PAGE = 25;
-    private int REQUEST_CODE = 123;
+	private int TWEET_PER_PAGE = 25;
+	private int REQUEST_CODE = 123;
 	final int UNINITIALIZED = -1;
 
-    long maxId;
-    long minId;
+	long maxId;
+	long minId;
 
-    TweetAdapter tweetAdapter;
-    TwitterClient client;
-    PullToRefreshListView lvItems;
+	TweetAdapter tweetAdapter;
+	TwitterClient client;
+	PullToRefreshListView lvItems;
 	boolean offlineMode = false;
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_twitter_stream);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_twitter_stream);
 		initMinMax();
 
-        tweetAdapter = new TweetAdapter(getBaseContext(), new ArrayList<Tweet>());
+		tweetAdapter = new TweetAdapter(getBaseContext(), new ArrayList<Tweet>());
 
-        client = RestClientApp.getRestClient();
-        this.loadMore();
+		client = RestClientApp.getRestClient();
+		this.loadMore();
 
-        lvItems = (PullToRefreshListView) findViewById(R.id.listView);
-        lvItems.setAdapter(tweetAdapter);
-        lvItems.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                TimelineActivity.this.loadMore();
-            }
-        });
-        lvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+		lvItems = (PullToRefreshListView) findViewById(R.id.listView);
+		lvItems.setAdapter(tweetAdapter);
+		lvItems.setOnScrollListener(new EndlessScrollListener() {
+			@Override
+			public void onLoadMore(int page, int totalItemsCount) {
+				TimelineActivity.this.loadMore();
+			}
+		});
+		lvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
-            @Override
-            public void onRefresh() {
-                TimelineActivity.this.refreshTweets();
-            }
-        });
-    }
+			@Override
+			public void onRefresh() {
+				TimelineActivity.this.refreshTweets();
+			}
+		});
+	}
 
 	public void initMinMax() {
 		maxId = UNINITIALIZED;
 		minId = UNINITIALIZED;
 	}
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.twitter, menu);
-        return true;
-    }
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.twitter, menu);
+		return true;
+	}
 
-    public void composeTweet(MenuItem item) {
-        Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
-        startActivityForResult(i, REQUEST_CODE);
-    }
+	public void composeTweet(MenuItem item) {
+		Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
+		startActivityForResult(i, REQUEST_CODE);
+	}
 
-    public void updateMinMax(Tweet tweet) {
+	public void updateMinMax(Tweet tweet) {
 
-        Long postId = tweet.getPostId();
+		Long postId = tweet.getPostId();
 
-        if (postId > TimelineActivity.this.maxId) {
-            this.maxId = postId;
-        }
+		if (TimelineActivity.this.maxId == UNINITIALIZED || postId > TimelineActivity.this.maxId) {
+			this.maxId = postId;
+		} else if (TimelineActivity.this.minId == UNINITIALIZED || postId < TimelineActivity.this.minId) {
+			this.minId = postId;
+		}
+	}
 
-        else if (TimelineActivity.this.minId == UNINITIALIZED || postId < TimelineActivity.this.minId) {
-            this.minId = postId;
-        }
-    }
+	public void addTweet(Tweet tweet, boolean insert) {
+		this.updateMinMax(tweet);
 
-    public void addTweet(Tweet tweet, boolean insert) {
-        this.updateMinMax(tweet);
+		if (insert) {
+			tweetAdapter.insert(tweet, 0);
+		} else {
+			tweetAdapter.add(tweet);
+		}
+	}
 
-        if (insert) {
-            tweetAdapter.insert(tweet, 0);
-        }
-        else {
-            tweetAdapter.add(tweet);
-        }
-    }
+	public void refreshTweets() {
+		TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler() {
+			@Override
+			public void onPostExecute() {
+				Log.d("debug", "Refresh complete");
+				lvItems.onRefreshComplete();
+			}
+		};
 
-    public void refreshTweets() {
-        TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler() {
-            @Override
-            public void onPostExecute() {
-                Log.d("debug", "Refresh complete");
-                lvItems.onRefreshComplete();
-            }
-        };
+		handler.addCallback(new TweetCallbackHandler() {
+			@Override
+			public void processItem(Tweet t) {
+				TimelineActivity.this.addTweet(t, true);
+			}
+		}
+		);
 
-        handler.addCallback(new TweetCallbackHandler() {
-                    @Override
-                    public void processItem(Tweet t) {
-                        TimelineActivity.this.addTweet(t, true);
-                    }
-                }
-        );
+		client.getHomeTimeline(0, this.maxId, TWEET_PER_PAGE, handler);
+	}
 
-        client.getHomeTimeline(0, this.maxId, TWEET_PER_PAGE, handler);
-    }
+	public void loadMore() {
 
-    public void loadMore() {
+		if (offlineMode) {
+			Log.d("debug", "Offline mode");
+			return;
+		}
+		TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler();
 
-	    if (offlineMode) {
-		    Log.d("debug", "Offlie mode");
-		    return;
-	    }
-	    TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler();
+		handler.addCallback(new TweetCallbackHandler() {
+			@Override
+			public void processItem(Tweet t) {
+				TimelineActivity.this.addTweet(t, false);
+			}
+		});
 
-        handler.addCallback(new TweetCallbackHandler() {
-            @Override
-            public void processItem(Tweet t) {
-                TimelineActivity.this.addTweet(t, false);
-            }
-        });
-
-        client.getHomeTimeline(this.minId, 0, TWEET_PER_PAGE, handler);
-    }
+		client.getHomeTimeline(this.minId, 0, TWEET_PER_PAGE, handler);
+	}
 
 	public void offlineMode(MenuItem item) {
 		if (item.isChecked() == false) {
@@ -149,7 +146,7 @@ public class TimelineActivity extends Activity {
 			this.initMinMax();
 			List<Tweet> tweets = new Select().from(Tweet.class).orderBy("created_at DESC").execute();
 			if (tweets.size() > 0) {
-			  tweetAdapter.addAll(tweets);
+				tweetAdapter.addAll(tweets);
 			}
 		} else {
 			offlineMode = false;
@@ -160,16 +157,16 @@ public class TimelineActivity extends Activity {
 		}
 	}
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-            this.refreshTweets();
-        }
-    }
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+			this.refreshTweets();
+		}
+	}
 
-    public void logout(MenuItem item) {
-        TwitterClient client = RestClientApp.getRestClient();
-        client.clearAccessToken();
-        finish();
-    }
+	public void logout(MenuItem item) {
+		TwitterClient client = RestClientApp.getRestClient();
+		client.clearAccessToken();
+		finish();
+	}
 }

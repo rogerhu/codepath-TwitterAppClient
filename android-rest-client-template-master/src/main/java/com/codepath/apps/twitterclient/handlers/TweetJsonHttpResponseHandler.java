@@ -61,5 +61,9 @@ public class TweetJsonHttpResponseHandler extends JsonHttpResponseHandler {
         e.printStackTrace();
     }
 
+	protected void sendFailureMessage(Throwable e, String responseBody) {
+		Log.d("debug", "sendFailureMessage: " + responseBody);
+	}
+
 
 }
