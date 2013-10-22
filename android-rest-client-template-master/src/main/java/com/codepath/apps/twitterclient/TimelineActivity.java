@@ -40,17 +40,6 @@ public class TimelineActivity extends Activity {
         client = RestClientApp.getRestClient();
         this.loadMore();
 
-/*        ListView lvItems = (ListView) findViewById(R.id.listView);
-        lvItems.setAdapter(tweetAdapter);
-
-        lvItems.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                TimelineActivity.this.loadMore();
-            }
-        });
-*/
-
         lvItems = (PullToRefreshListView) findViewById(R.id.listView);
         lvItems.setAdapter(tweetAdapter);
         lvItems.setOnScrollListener(new EndlessScrollListener() {
