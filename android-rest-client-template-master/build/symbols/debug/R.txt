@@ -271,6 +271,7 @@ int id middle 0x7f07000b
 int id never 0x7f07000d
 int id none 0x7f070009
 int id normal 0x7f070000
+int id offline_mode 0x7f070051
 int id progress_circular 0x7f070034
 int id progress_horizontal 0x7f070035
 int id ptr_id_header 0x7f07004a
@@ -361,11 +362,12 @@ int string cancel 0x7f0a000f
 int string hello_world 0x7f0a0010
 int string login_label 0x7f0a0011
 int string logout 0x7f0a0012
-int string ptr_last_updated 0x7f0a0013
-int string ptr_pull_to_refresh 0x7f0a0014
-int string ptr_refreshing 0x7f0a0015
-int string ptr_release_to_refresh 0x7f0a0016
-int string tweet 0x7f0a0017
+int string offline_mode 0x7f0a0013
+int string ptr_last_updated 0x7f0a0014
+int string ptr_pull_to_refresh 0x7f0a0015
+int string ptr_refreshing 0x7f0a0016
+int string ptr_release_to_refresh 0x7f0a0017
+int string tweet 0x7f0a0018
 int style AppBaseTheme 0x7f0b0000
 int style AppTheme 0x7f0b0001
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0002

@@ -898,6 +898,7 @@ containing a value of this type.
         public static final int never=0x7f07000d;
         public static final int none=0x7f070009;
         public static final int normal=0x7f070000;
+        public static final int offline_mode=0x7f070051;
         public static final int progress_circular=0x7f070034;
         public static final int progress_horizontal=0x7f070035;
         public static final int ptr_id_header=0x7f07004a;
@@ -996,11 +997,12 @@ containing a value of this type.
         public static final int hello_world=0x7f0a0010;
         public static final int login_label=0x7f0a0011;
         public static final int logout=0x7f0a0012;
-        public static final int ptr_last_updated=0x7f0a0013;
-        public static final int ptr_pull_to_refresh=0x7f0a0014;
-        public static final int ptr_refreshing=0x7f0a0015;
-        public static final int ptr_release_to_refresh=0x7f0a0016;
-        public static final int tweet=0x7f0a0017;
+        public static final int offline_mode=0x7f0a0013;
+        public static final int ptr_last_updated=0x7f0a0014;
+        public static final int ptr_pull_to_refresh=0x7f0a0015;
+        public static final int ptr_refreshing=0x7f0a0016;
+        public static final int ptr_release_to_refresh=0x7f0a0017;
+        public static final int tweet=0x7f0a0018;
     }
     public static final class style {
         /** 

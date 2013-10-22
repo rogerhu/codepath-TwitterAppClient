@@ -8,11 +8,20 @@
         android:title="@string/action_settings"
         android:onClick="composeTweet"/>
 
-    <item
+	<item
+		android:id="@+id/offline_mode"
+		android:orderInCategory="100"
+		android:showAsAction="withText"
+		android:title="@string/offline_mode"
+		android:checkable="true"
+		android:onClick="offlineMode"></item>
+
+	<item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="withText"
         android:title="@string/logout"
         android:onClick="logout"/>
+
 
 </menu><!-- From: file:/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/src/main/res/menu/twitter.xml -->

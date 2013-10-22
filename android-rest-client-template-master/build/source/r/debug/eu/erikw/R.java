@@ -22,10 +22,10 @@ public final class R {
 		public static final int ptr_header = 0x7f03001c;
 	}
 	public static final class string {
-		public static final int ptr_last_updated = 0x7f0a0013;
-		public static final int ptr_pull_to_refresh = 0x7f0a0014;
-		public static final int ptr_refreshing = 0x7f0a0015;
-		public static final int ptr_release_to_refresh = 0x7f0a0016;
+		public static final int ptr_last_updated = 0x7f0a0014;
+		public static final int ptr_pull_to_refresh = 0x7f0a0015;
+		public static final int ptr_refreshing = 0x7f0a0016;
+		public static final int ptr_release_to_refresh = 0x7f0a0017;
 	}
 	public static final class style {
 		public static final int ptr_arrow = 0x7f0b0081;

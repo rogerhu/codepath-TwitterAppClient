@@ -518,6 +518,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="login_label">Log in</string>
     <string name="logout">Logout</string>
+    <string name="offline_mode">Offline Mode</string>
     <!-- From: file:/home/rhu/prjoects/Android_workspace/old.TwitterAppClient/android-rest-client-template-master/build/exploded-bundles/AndroidRestClientTemplateMasterPullToRefreshUnspecified.aar/res/values/values.xml -->
     <eat-comment />
 

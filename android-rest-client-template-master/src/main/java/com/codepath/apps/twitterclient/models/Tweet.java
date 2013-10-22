@@ -23,6 +23,7 @@ import java.util.Locale;
 @Table(name = "Tweets")
 public class Tweet extends Model implements BaseModel {
 
+	@Column(name="user")
     private User user;
 
     // Define table fields
