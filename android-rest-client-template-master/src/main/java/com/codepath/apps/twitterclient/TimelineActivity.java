@@ -1,14 +1,24 @@
 package com.codepath.apps.twitterclient;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.handlers.TweetCallbackHandler;
@@ -23,10 +33,9 @@ import eu.erikw.PullToRefreshListView;
 /**
  * Created by rhu on 10/19/13.
  */
-public class TimelineActivity extends Activity {
+public class TimelineActivity extends Fragment {
 
 	private int TWEET_PER_PAGE = 25;
-	private int REQUEST_CODE = 123;
 	final int UNINITIALIZED = -1;
 
 	long maxId;
@@ -36,20 +45,25 @@ public class TimelineActivity extends Activity {
 	TwitterClient client;
 	PullToRefreshListView lvItems;
 	boolean offlineMode = false;
+/*	private OnNeedDataListener listener;
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_twitter_stream);
+	public interface OnNeedDataListener {
+		public void refresh();
+		public void loadMore();
+	};*/
+
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.activity_twitter_stream, container, false);
 		initMinMax();
 
-		tweetAdapter = new TweetAdapter(getBaseContext(), new ArrayList<Tweet>());
+		tweetAdapter = new TweetAdapter(getActivity().getBaseContext(), new ArrayList<Tweet>());
 
 		client = RestClientApp.getRestClient();
 		this.loadMore();
-
-		lvItems = (PullToRefreshListView) findViewById(R.id.listView);
+		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
 		lvItems.setAdapter(tweetAdapter);
 		lvItems.setOnScrollListener(new EndlessScrollListener() {
+
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
 				TimelineActivity.this.loadMore();
@@ -62,6 +76,8 @@ public class TimelineActivity extends Activity {
 				TimelineActivity.this.refreshTweets();
 			}
 		});
+
+		return v;
 	}
 
 	public void initMinMax() {
@@ -69,14 +85,8 @@ public class TimelineActivity extends Activity {
 		minId = UNINITIALIZED;
 	}
 
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.twitter, menu);
-		return true;
-	}
-
-	public void composeTweet(MenuItem item) {
-		Intent i = new Intent(TimelineActivity.this, ComposeActivity.class);
-		startActivityForResult(i, REQUEST_CODE);
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.twitter, menu);
 	}
 
 	public void updateMinMax(Tweet tweet) {
@@ -100,8 +110,16 @@ public class TimelineActivity extends Activity {
 		}
 	}
 
-	public void refreshTweets() {
+	public TweetJsonHttpResponseHandler createTweetHandler(final boolean insert) {
+
 		TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler() {
+
+			@Override
+			protected void sendFailureMessage(Throwable e, String responseBody) {
+				super.sendFailureMessage(e, responseBody);
+				Toast.makeText(getActivity().getBaseContext(), "Twitter error: " + responseBody, Toast.LENGTH_SHORT).show();
+			}
+
 			@Override
 			public void onPostExecute() {
 				Log.d("debug", "Refresh complete");
@@ -112,29 +130,25 @@ public class TimelineActivity extends Activity {
 		handler.addCallback(new TweetCallbackHandler() {
 			@Override
 			public void processItem(Tweet t) {
-				TimelineActivity.this.addTweet(t, true);
+				TimelineActivity.this.addTweet(t, insert);
 			}
 		}
 		);
-
-		client.getHomeTimeline(0, this.maxId, TWEET_PER_PAGE, handler);
+		return handler;
 	}
 
+	public void refreshTweets() {
+		TweetJsonHttpResponseHandler handler = createTweetHandler(true);
+		client.getHomeTimeline(0, this.maxId, TWEET_PER_PAGE, handler);
+	}
 	public void loadMore() {
 
 		if (offlineMode) {
 			Log.d("debug", "Offline mode");
 			return;
 		}
-		TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler();
 
-		handler.addCallback(new TweetCallbackHandler() {
-			@Override
-			public void processItem(Tweet t) {
-				TimelineActivity.this.addTweet(t, false);
-			}
-		});
-
+		TweetJsonHttpResponseHandler handler = createTweetHandler(false);
 		client.getHomeTimeline(this.minId, 0, TWEET_PER_PAGE, handler);
 	}
 
@@ -155,18 +169,5 @@ public class TimelineActivity extends Activity {
 			this.initMinMax();
 			this.loadMore();
 		}
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-			this.refreshTweets();
-		}
-	}
-
-	public void logout(MenuItem item) {
-		TwitterClient client = RestClientApp.getRestClient();
-		client.clearAccessToken();
-		finish();
 	}
 }
