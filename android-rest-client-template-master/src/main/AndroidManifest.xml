@@ -43,7 +43,7 @@
                     android:scheme="oauth" />
             </intent-filter>
         </activity>
-        <fragment android:name="com.codepath.apps.twitterclient.TimelineActivity" />
+        <fragment android:name="com.codepath.apps.twitterclient.TimelineFragment" />
         <activity android:name="com.codepath.apps.twitterclient.ComposeActivity" />
 	    <activity android:name=".MainActivity"/>
     </application>

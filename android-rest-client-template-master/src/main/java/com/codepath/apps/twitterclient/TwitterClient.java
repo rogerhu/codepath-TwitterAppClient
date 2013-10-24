@@ -46,7 +46,7 @@ public class TwitterClient extends OAuthBaseClient {
 
         if (minId > 0) {
             Log.d("debug", "Requesting max_id=" + minId);
-            params.put("max_id", String.valueOf(minId));
+            params.put("max_id", String.valueOf(minId-1));
         }
 
         if (maxId > 0) {
