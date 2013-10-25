@@ -21,7 +21,7 @@ public class ModelCreator<T extends Model & BaseModel> {
         T entry;
         if (items.size() > 0) {
             entry = (T) items.get(0);
-            Log.d("debug", "Found existing entry...updating " + entry.getId());
+            //Log.d("debug", "Found existing entry...updating " + entry.getId());
         }
         else {
             entry = classType.newInstance();

@@ -1,18 +1,22 @@
 package com.codepath.apps.twitterclient;
 
 import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.content.Intent;
+
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.handlers.TweetJsonHttpResponseHandler;
-import com.codepath.apps.twitterclient.models.Tweet;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 
 /**
  * Created by rhu on 10/23/13.
@@ -30,7 +34,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		HOME, MENTIONS
 	};
 
-	TabTypes curTab;
+	ActionBar actionBar;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,53 +45,66 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 	}
 
 	private void setUpTabs() {
-		ActionBar actionBar = getActionBar();
+		actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(true);
 
-		ActionBar.Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.ic_launcher).setTag("HomelineFragment");
-		tab1.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "first", TimelineFragment.class));
+		Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.ic_launcher).setTag(TabTypes.HOME);
+		tab1.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "home", TimelineFragment.class));
 		actionBar.addTab(tab1);
-		curTab = TabTypes.HOME;
 		actionBar.selectTab(tab1);
 
-		ActionBar.Tab tab2 = actionBar.newTab().setText("Mentions").setIcon(R.drawable.ic_launcher).setTag("OtherFragment");
-		tab2.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "first", TimelineFragment.class));
+		Tab tab2 = actionBar.newTab().setText("Mentions").setIcon(R.drawable.ic_launcher).setTag(TabTypes.MENTIONS);
+		tab2.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "mentions", TimelineFragment.class));
 		actionBar.addTab(tab2);
 
 	}
 
 	@Override
-	public void refresh() {
+	public void loadMore(final TimelineFragment.LoadType loadType) {
 
-		if (curTab == TabTypes.HOME) {
-			TimelineFragment fragment = (TimelineFragment) getSupportFragmentManager().findFragmentById(R.id.fl1);
-			if (fragment == null) {
-				Log.d("debug", "fragment not there");
-			} else {
-				TweetJsonHttpResponseHandler handler = fragment.createRefreshResponseHandler();
-				client.getHomeTimeline(0, fragment.getMaxId(), TWEET_PER_PAGE, handler);
-			}
-		}
-	}
+		Tab selected = (Tab) actionBar.getSelectedTab();
 
-	@Override
-	public void loadMore() {
-
-		if (offlineMode) {
-			Log.d("debug", "Offline mode");
+		if (selected == null) {
+			Log.d("debug", "No tab");
 			return;
 		}
 
-		if (curTab == TabTypes.HOME) {
-			TimelineFragment fragment = (TimelineFragment) getSupportFragmentManager().findFragmentById(R.id.fl1);
+		TabTypes tabTag = (TabTypes) selected.getTag();
+
+		Method method;
+
+		try {
+			if (tabTag == TabTypes.HOME) {
+				method = client.getClass().getMethod("getHomeTimeline", long.class, long.class, int.class, AsyncHttpResponseHandler.class);
+			}
+			else {
+				method = client.getClass().getMethod("getMentionsTimeline", long.class, long.class, int.class, AsyncHttpResponseHandler.class);
+			}
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			return;
+		}
+
+		TimelineFragment fragment = (TimelineFragment) getSupportFragmentManager().findFragmentById(R.id.fl1);
 			if (fragment == null) {
 				Log.d("debug", "fragment not there");
 			} else {
-				TweetJsonHttpResponseHandler handler = fragment.createLoadMoreResponseHandler();
-				client.getHomeTimeline(fragment.getMinId(), 0, TWEET_PER_PAGE, handler);
+				TweetJsonHttpResponseHandler handler = fragment.createTweetHandler(loadType);
+				try {
+					if (loadType == TimelineFragment.LoadType.NEW_TWEETS) {
+						Log.d("debug", "Looking for newer tweets");
+						method.invoke(client, fragment.getNewerTweets(), 0, TWEET_PER_PAGE, handler);
+					}
+					else {
+						Log.d("debug", "Looking for older tweets");
+						method.invoke(client, 0, fragment.getOlderTweets(), TWEET_PER_PAGE, handler);
+					}
+				} catch (IllegalAccessException e) {
+				}
+				catch (InvocationTargetException e) {
+				}
 			}
-		}
 	}
 
 	@Override

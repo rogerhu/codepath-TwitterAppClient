@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.handlers.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.handlers.TweetJsonHttpResponseHandler;
@@ -29,14 +28,18 @@ public class TimelineFragment extends Fragment {
 	long maxId;
 	long minId;
 
+	public enum LoadType {
+		NEW_TWEETS,
+		OLDER_TWEETS
+	}
+
 	TweetAdapter tweetAdapter;
 
 	PullToRefreshListView lvItems;
 	private OnDataUpdateListener listener;
 
 	public interface OnDataUpdateListener {
-		public void refresh();
-		public void loadMore();
+		public void loadMore(LoadType loadType);
 		public void onError(Throwable e, String response);
 	};
 
@@ -61,21 +64,21 @@ public class TimelineFragment extends Fragment {
 
 		tweetAdapter = new TweetAdapter(getActivity().getBaseContext(), new ArrayList<Tweet>());
 
-		listener.loadMore();
+//		listener.loadMore(LoadType.OLDER_TWEETS);
 		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
 		lvItems.setAdapter(tweetAdapter);
 		lvItems.setOnScrollListener(new EndlessScrollListener() {
 
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
-				listener.loadMore();
+				listener.loadMore(LoadType.OLDER_TWEETS);
 			}
 		});
 		lvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
 			@Override
 			public void onRefresh() {
-				listener.refresh();
+				//listener.loadMore(LoadType.NEW_TWEETS);
 			}
 		});
 
@@ -102,17 +105,17 @@ public class TimelineFragment extends Fragment {
 		}
 	}
 
-	public void addTweet(Tweet tweet, boolean insert) {
+	public void addTweet(Tweet tweet, LoadType loadType) {
 		this.updateMinMax(tweet);
 
-		if (insert) {
+		if (loadType == LoadType.NEW_TWEETS) {
 			tweetAdapter.insert(tweet, 0);
 		} else {
 			tweetAdapter.add(tweet);
 		}
 	}
 
-	public TweetJsonHttpResponseHandler createTweetHandler(final boolean insert) {
+	public TweetJsonHttpResponseHandler createTweetHandler(final LoadType loadType) {
 
 		TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler() {
 
@@ -132,27 +135,19 @@ public class TimelineFragment extends Fragment {
 		handler.addCallback(new TweetCallbackHandler() {
 			@Override
 			public void processItem(Tweet t) {
-				TimelineFragment.this.addTweet(t, insert);
+				TimelineFragment.this.addTweet(t, loadType);
 			}
 		}
 		);
 		return handler;
 	}
 
-	public TweetJsonHttpResponseHandler createRefreshResponseHandler() {
-		return createTweetHandler(true);
-	}
-
-	public TweetJsonHttpResponseHandler createLoadMoreResponseHandler() {
-		return createTweetHandler(false);
-	}
-
-	public long getMinId() {
-		return minId;
-	}
-
-	public long getMaxId() {
+	public long getNewerTweets() {
 		return maxId;
+	}
+
+	public long getOlderTweets() {
+		return minId;
 	}
 
 }

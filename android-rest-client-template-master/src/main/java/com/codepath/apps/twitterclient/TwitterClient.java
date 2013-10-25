@@ -38,20 +38,30 @@ public class TwitterClient extends OAuthBaseClient {
     public TwitterClient(Context context) {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
-    
-    public void getHomeTimeline(long minId, long maxId, int count, AsyncHttpResponseHandler handler) {
-    	String apiUrl = getApiUrl("statuses/home_timeline.json");
+
+	public void getMentionsTimeline(long minId, long maxId, int count, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		getTimeline(apiUrl, minId, maxId, count, handler);
+	}
+
+	public void getHomeTimeline(long minId, long maxId, int count, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/home_timeline.json");
+		getTimeline(apiUrl, minId, maxId, count, handler);
+	}
+
+	public void getTimeline(String apiUrl, long newestTweet, long oldestTweet, int count, AsyncHttpResponseHandler handler) {
+
         // Can specify query string params directly or through RequestParams.
         RequestParams params = new RequestParams();
 
-        if (minId > 0) {
-            Log.d("debug", "Requesting max_id=" + minId);
-            params.put("max_id", String.valueOf(minId-1));
+        if (oldestTweet > 0) {
+            Log.d("debug", "Requesting max_id=" + oldestTweet);
+            params.put("max_id", String.valueOf(oldestTweet-1));
         }
 
-        if (maxId > 0) {
-            Log.d("debug", "Requesting since_id=" + maxId);
-            params.put("since_id", String.valueOf(maxId));
+        if (newestTweet > 0) {
+            Log.d("debug", "Requesting since_id=" + newestTweet);
+            params.put("since_id", String.valueOf(newestTweet));
         }
 
         params.put("count", String.valueOf(count));
