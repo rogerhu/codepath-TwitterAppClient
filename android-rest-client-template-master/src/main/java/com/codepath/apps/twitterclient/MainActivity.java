@@ -108,8 +108,16 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 	}
 
 	@Override
-	public void onError(Throwable e, String responseBody) {
-		Toast.makeText(getBaseContext(), "Twitter error: " + responseBody, Toast.LENGTH_SHORT).show();
+	public void onError(Throwable e, final String responseBody) {
+		Log.d("debug", "onError here " + e.toString());
+
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(MainActivity.this, "Twitter error: " + responseBody, Toast.LENGTH_LONG).show();
+
+			}
+		});
 	}
 
 	/*

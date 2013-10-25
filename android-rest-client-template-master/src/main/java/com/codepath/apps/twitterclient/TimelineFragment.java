@@ -64,13 +64,13 @@ public class TimelineFragment extends Fragment {
 
 		tweetAdapter = new TweetAdapter(getActivity().getBaseContext(), new ArrayList<Tweet>());
 
-//		listener.loadMore(LoadType.OLDER_TWEETS);
 		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
 		lvItems.setAdapter(tweetAdapter);
 		lvItems.setOnScrollListener(new EndlessScrollListener() {
 
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
+				Log.d("debug", "scroll listener");
 				listener.loadMore(LoadType.OLDER_TWEETS);
 			}
 		});
@@ -78,7 +78,7 @@ public class TimelineFragment extends Fragment {
 
 			@Override
 			public void onRefresh() {
-				//listener.loadMore(LoadType.NEW_TWEETS);
+				listener.loadMore(LoadType.NEW_TWEETS);
 			}
 		});
 
