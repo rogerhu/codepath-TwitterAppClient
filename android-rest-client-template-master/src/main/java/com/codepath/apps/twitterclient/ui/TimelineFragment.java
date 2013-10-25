@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient;
+package com.codepath.apps.twitterclient.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,8 +10,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codepath.apps.twitterclient.handlers.TweetCallbackHandler;
-import com.codepath.apps.twitterclient.handlers.TweetJsonHttpResponseHandler;
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
+import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
 
 import java.util.ArrayList;
@@ -85,13 +86,14 @@ public class TimelineFragment extends Fragment {
 		return v;
 	}
 
-	public void initMinMax() {
-		maxId = UNINITIALIZED;
-		minId = UNINITIALIZED;
-	}
 
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		inflater.inflate(R.menu.twitter, menu);
+	}
+
+	public void initMinMax() {
+		maxId = UNINITIALIZED;
+		minId = UNINITIALIZED;
 	}
 
 	public void updateMinMax(Tweet tweet) {

@@ -1,17 +1,19 @@
-package com.codepath.apps.twitterclient;
+package com.codepath.apps.twitterclient.ui;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.codepath.apps.twitterclient.handlers.TweetJsonHttpResponseHandler;
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.network.RestClientApp;
+import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
+import com.codepath.apps.twitterclient.network.TwitterClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.lang.reflect.InvocationTargetException;

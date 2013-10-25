@@ -1,9 +1,8 @@
-package com.codepath.apps.twitterclient.handlers;
+package com.codepath.apps.twitterclient.network;
 
 import android.util.Log;
 
-import com.codepath.apps.twitterclient.TweetAdapter;
-import com.codepath.apps.twitterclient.handlers.TweetCallbackHandler;
+import com.codepath.apps.twitterclient.ui.TweetAdapter;
 import com.codepath.apps.twitterclient.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 

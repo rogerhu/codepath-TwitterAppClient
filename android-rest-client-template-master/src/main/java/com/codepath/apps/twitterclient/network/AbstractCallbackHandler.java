@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.handlers;
+package com.codepath.apps.twitterclient.network;
 
 /**
  * Created by rhu on 10/20/13.

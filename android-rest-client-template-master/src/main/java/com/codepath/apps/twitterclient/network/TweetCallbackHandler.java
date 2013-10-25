@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.handlers;
+package com.codepath.apps.twitterclient.network;
 
 import com.codepath.apps.twitterclient.models.Tweet;
 
