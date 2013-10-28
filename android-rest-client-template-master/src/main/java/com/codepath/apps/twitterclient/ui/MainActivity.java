@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
@@ -18,6 +21,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 
 /**
@@ -65,7 +69,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 	@Override
 	public void loadMore(final TimelineFragment.LoadType loadType) {
 
-		Tab selected = (Tab) actionBar.getSelectedTab();
+		Tab selected = actionBar.getSelectedTab();
 
 		if (selected == null) {
 			Log.d("debug", "No tab");
@@ -122,8 +126,8 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		});
 	}
 
-	/*
 	public void offlineMode(MenuItem item) {
+		/*
 		if (item.isChecked() == false) {
 			item.setChecked(true);
 			offlineMode = true;
@@ -139,9 +143,13 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 			tweetAdapter.clear();
 			this.initMinMax();
 			listener.loadMore();
-		}
-	}*/
+		}*/
+	}
 
+	public void openProfile(MenuItem item) {
+		Intent i = new Intent(getBaseContext(), ProfileActivity.class);
+		startActivity(i);
+	}
 	public void composeTweet(MenuItem item) {
 		Intent i = new Intent(getBaseContext(), ComposeActivity.class);
 		startActivityForResult(i, REQUEST_CODE);
@@ -160,4 +168,10 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		finish();
 	}
 
+	// Inflate the menu; this adds items to the action bar if it is present.
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.twitter, menu);
+		return true;
+	}
 }

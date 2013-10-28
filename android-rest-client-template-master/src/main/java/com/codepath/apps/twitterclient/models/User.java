@@ -22,15 +22,24 @@ public class User extends Model implements BaseModel {
     String location;
 
     @Column(name = "profile_image_url")
-    String profile_image_url;
+    String profileImageUrl;
 
     @Column(name = "twitter_id")
-    Long twitter_id;
+    Long twitterId;
 
     @Column(name = "screen_name")
-    String screen_name;
+    String screenName;
 
-    public User() {
+	@Column(name = "followers_count")
+	Long followersCount;
+
+	@Column(name = "friends_count")
+	Long friendsCount;
+
+	@Column(name = "description")
+	String description;
+
+	public User() {
         super();
     }
 
@@ -42,15 +51,18 @@ public class User extends Model implements BaseModel {
 
     }
 
-    public void parseJSON(JSONObject object) {
+	public void parseJSON(JSONObject object) {
 
-        this.twitter_id = getUniqueId(object);
+        this.twitterId = getUniqueId(object);
 
         try {
             this.name = object.getString("name");
             this.location = object.getString("location");
-            this.profile_image_url = object.getString("profile_image_url");
-            this.screen_name = object.getString("screen_name");
+            this.profileImageUrl = object.getString("profile_image_url");
+            this.screenName = object.getString("screen_name");
+			this.followersCount = object.getLong("followers_count");
+	        this.friendsCount = object.getLong("friends_count");
+	        this.description = object.getString("description");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -58,7 +70,7 @@ public class User extends Model implements BaseModel {
     }
 
     public String getProfileImageUrl() {
-        return this.profile_image_url;
+        return this.profileImageUrl;
     }
 
     public static Long getUniqueId(JSONObject tweetJson) {
@@ -76,10 +88,10 @@ public class User extends Model implements BaseModel {
         return this.name;
     }
 
-    public Long getTwitterId() { return this.twitter_id; }
+    public Long getTwitterId() { return this.twitterId; }
 
     public String getTwitterHandle() {
-        return this.screen_name;
+        return this.screenName;
     }
 
     public void setFullName(String name) {
@@ -87,11 +99,34 @@ public class User extends Model implements BaseModel {
     }
 
     public void setProfileImageUrl(String url) {
-        this.profile_image_url = url;
+        this.profileImageUrl = url;
     }
 
     public void setTwitterHandle(String handle) {
-        this.screen_name = handle;
+        this.screenName = handle;
     }
 
+	public Long getFollowersCount() {
+		return followersCount;
+	}
+
+	public void setFollowersCount(Long followersCount) {
+		this.followersCount = followersCount;
+	}
+
+	public Long getFriendsCount() {
+		return friendsCount;
+	}
+
+	public void setFriendsCount(Long friendsCount) {
+		this.friendsCount = friendsCount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

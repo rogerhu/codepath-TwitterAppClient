@@ -46,6 +46,7 @@
         <fragment android:name="com.codepath.apps.twitterclient.ui.TimelineFragment" />
         <activity android:name=".ui.ComposeActivity" />
 	    <activity android:name=".ui.MainActivity"/>
+	    <activity android:name=".ui.ProfileActivity"/>
     </application>
 
 </manifest>

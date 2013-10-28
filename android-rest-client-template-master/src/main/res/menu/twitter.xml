@@ -9,6 +9,14 @@
         android:onClick="composeTweet"/>
 
 	<item
+		android:id="@+id/action_settings"
+		android:orderInCategory="100"
+		android:icon="@drawable/ic_launcher"
+		android:showAsAction="ifRoom"
+		android:title="@string/open_profile"
+		android:onClick="openProfile"/>
+
+	<item
 		android:id="@+id/offline_mode"
 		android:orderInCategory="100"
 		android:showAsAction="withText"

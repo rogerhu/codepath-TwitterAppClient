@@ -63,9 +63,15 @@ public class TimelineFragment extends Fragment {
 		View v = inflater.inflate(R.layout.activity_twitter_stream, container, false);
 		initMinMax();
 
+		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
+
+		return v;
+	}
+
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		tweetAdapter = new TweetAdapter(getActivity().getBaseContext(), new ArrayList<Tweet>());
 
-		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
 		lvItems.setAdapter(tweetAdapter);
 		lvItems.setOnScrollListener(new EndlessScrollListener() {
 
@@ -82,10 +88,7 @@ public class TimelineFragment extends Fragment {
 				listener.loadMore(LoadType.NEW_TWEETS);
 			}
 		});
-
-		return v;
 	}
-
 
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		inflater.inflate(R.menu.twitter, menu);
