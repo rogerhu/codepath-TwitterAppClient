@@ -40,27 +40,30 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 		setContentView(R.layout.activity_profile);
 
 		Intent i = getIntent();
-		String screenName = i.getStringExtra("screen_name");
+		String screenName = i.getStringExtra("screenName");
 
 		client = RestClientApp.getRestClient();
 
+		JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject json) {
+				Log.d("debug", "Got " + json.toString());
+				user = new User(json);
+				updateProfile();
+
+				Log.d("debug", "Searching for user " + user.getTwitterHandle());
+				FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+				ft.replace(R.id.profileTweets, new TimelineFragment());
+				ft.commit();
+			}
+		};
+
 		if (screenName == null) {
-			client.getSelfProfile(new JsonHttpResponseHandler() {
-				@Override
-				public void onSuccess(JSONObject json) {
-					Log.d("debug", "Got " + json.toString());
-					user = new User(json);
-					updateProfile();
-
-					Log.d("debug", "Searching for user " + user.getTwitterHandle());
-					FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-					ft.replace(R.id.profileTweets, new TimelineFragment());
-					ft.commit();
-				}
-			});
+			client.getSelfProfile(handler);
 		}
-
-
+		else {
+			client.getUserProfile(screenName, handler);
+		}
 	}
 
 	public void updateProfile() {

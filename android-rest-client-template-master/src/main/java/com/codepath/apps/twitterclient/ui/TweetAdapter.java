@@ -1,7 +1,9 @@
 package com.codepath.apps.twitterclient.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -31,7 +33,7 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
 
         Tweet tweet = getItem(position);
 
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.userAvatar);
+        final ImageView imageView = (ImageView) convertView.findViewById(R.id.userAvatar);
 
         User user = tweet.getUser();
 
@@ -40,6 +42,20 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         TextView fullName = (TextView) convertView.findViewById(R.id.userName);
         String formattedName = "<b>" + user.getFullName() + "</b>" + " <small><font color='#7777777'>@" +
                    user.getTwitterHandle() + "</font></small>";
+
+	    imageView.setTag(R.id.TWITTER_HANDLE, user.getTwitterHandle().toString());
+
+	    imageView.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View view) {
+			    Context ctx = view.getContext();
+			    String twitterHandle = (String) view.getTag(R.id.TWITTER_HANDLE);
+			    Intent i = new Intent(ctx, ProfileActivity.class);
+			    i.putExtra("screenName", twitterHandle);
+			    Log.d("debug", "Launching with screenName " + twitterHandle);
+			    ctx.startActivity(i);
+		    }
+	    });
 
         fullName.setText(Html.fromHtml(formattedName));
 
