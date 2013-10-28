@@ -47,7 +47,6 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		setContentView(R.layout.activity_main);
 		setUpTabs();
 		client = RestClientApp.getRestClient();
-
 	}
 
 	private void setUpTabs() {
@@ -63,7 +62,6 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		Tab tab2 = actionBar.newTab().setText("Mentions").setIcon(R.drawable.ic_launcher).setTag(TabTypes.MENTIONS);
 		tab2.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "mentions", TimelineFragment.class));
 		actionBar.addTab(tab2);
-
 	}
 
 	@Override

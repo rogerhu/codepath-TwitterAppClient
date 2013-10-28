@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +36,15 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 	User user;
 	public int TWEETS_PER_PAGE = 25;
 
+	public void onStart() {
+		super.onStart();
+		// Now you can switch on and off the progress
+		setProgressBarIndeterminateVisibility(true);
+	}
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_profile);
 
 		Intent i = getIntent();
@@ -55,6 +63,7 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 				FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 				ft.replace(R.id.profileTweets, new TimelineFragment());
 				ft.commit();
+				setProgressBarIndeterminateVisibility(false);
 			}
 		};
 
