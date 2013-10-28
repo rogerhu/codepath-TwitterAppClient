@@ -125,9 +125,12 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 	}
 
 	public void offlineMode(MenuItem item) {
-		/*
-		if (item.isChecked() == false) {
+
+		return;
+
+/*		if (item.isChecked() == false) {
 			item.setChecked(true);
+
 			offlineMode = true;
 			tweetAdapter.clear();
 			this.initMinMax();
@@ -144,6 +147,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		}*/
 	}
 
+
 	public void openProfile(MenuItem item) {
 		Intent i = new Intent(getBaseContext(), ProfileActivity.class);
 		startActivity(i);
@@ -156,7 +160,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-//			this.refreshTweets();
+			loadMore(TimelineFragment.LoadType.NEW_TWEETS);
 		}
 	}
 
