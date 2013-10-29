@@ -11,7 +11,7 @@
 	<item
 		android:id="@+id/action_settings"
 		android:orderInCategory="100"
-		android:icon="@drawable/ic_launcher"
+		android:icon="@drawable/profile"
 		android:showAsAction="ifRoom"
 		android:title="@string/open_profile"
 		android:onClick="openProfile"/>
