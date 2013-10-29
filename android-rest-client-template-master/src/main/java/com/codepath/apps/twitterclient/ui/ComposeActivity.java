@@ -3,11 +3,13 @@ package com.codepath.apps.twitterclient.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TwitterClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -19,18 +21,29 @@ import org.json.JSONObject;
  */
 public class ComposeActivity extends Activity {
 
-    String text;
+	Tweet replyToTweet;
+	String text;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
+
+	    Long tweetId = getIntent().getLongExtra("tweetId", 0);
+
+	    if (tweetId != 0) {
+		    replyToTweet = Tweet.byId(tweetId);
+
+		    Log.d("debug", "Composing to " + replyToTweet.getUser().getTwitterHandle());
+		    EditText tweet = (EditText) findViewById(R.id.editText);
+		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle()+ " ");
+	    }
     }
 
     public void cancelCompose(View v) {
         finish();
     }
 
-    public void composeTweet(View v) {
+    public void sendTweet(View v) {
         EditText tweet = (EditText) findViewById(R.id.editText);
 
         if (tweet.getText() == null) {
@@ -42,7 +55,14 @@ public class ComposeActivity extends Activity {
 
         TwitterClient client = RestClientApp.getRestClient();
 
-        client.postTweet(text, new JsonHttpResponseHandler() {
+	    Long replyToId = null;
+
+	    if (replyToTweet != null) {
+		    replyToId = replyToTweet.getPostId();
+		    Log.d("debug", "Sending in_reply_to " + replyToId);
+	    }
+
+        client.postTweet(text, replyToId, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(JSONObject response) {

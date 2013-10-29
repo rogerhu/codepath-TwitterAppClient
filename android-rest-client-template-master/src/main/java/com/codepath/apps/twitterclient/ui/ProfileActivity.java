@@ -128,4 +128,7 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 		});
 	}
 
+	public void composeTo(Long tweetId) {
+
+	}
 }

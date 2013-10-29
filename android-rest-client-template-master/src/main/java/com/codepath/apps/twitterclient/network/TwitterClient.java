@@ -6,6 +6,7 @@ import org.scribe.builder.api.TwitterApi;
 import android.content.Context;
 import android.util.Log;
 
+import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -104,15 +105,17 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler);
     }
 
-    public void postTweet(String status, AsyncHttpResponseHandler handler) {
+    public void postTweet(String status, Long parentTweet, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/update.json");
 
          RequestParams params = new RequestParams();
          params.put("status", status);
 
+	     if (parentTweet != null) {
+		     params.put("in_reply_to_status_id", String.valueOf(parentTweet));
+	     }
+
          client.post(apiUrl, params, handler);
-
-
     }
 
     public void getUserSettings(AsyncHttpResponseHandler handler) {

@@ -11,9 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
@@ -21,13 +19,12 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.List;
 
 
 /**
  * Created by rhu on 10/23/13.
  */
-public class MainActivity extends FragmentActivity implements TimelineFragment.OnDataUpdateListener {
+public class HomeActivity extends FragmentActivity implements TimelineFragment.OnDataUpdateListener {
 
 	private int REQUEST_CODE = 123;
 	private int TWEET_PER_PAGE = 25;
@@ -44,7 +41,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_home);
 		setUpTabs();
 		client = RestClientApp.getRestClient();
 	}
@@ -54,7 +51,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(true);
 
-		Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.ic_launcher).setTag(TabTypes.HOME);
+		Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.home).setTag(TabTypes.HOME);
 		tab1.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "home", TimelineFragment.class));
 		actionBar.addTab(tab1);
 		actionBar.selectTab(tab1);
@@ -118,7 +115,7 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				Toast.makeText(MainActivity.this, "Twitter error: " + responseBody, Toast.LENGTH_LONG).show();
+				Toast.makeText(HomeActivity.this, "Twitter error: " + responseBody, Toast.LENGTH_LONG).show();
 
 			}
 		});
@@ -170,7 +167,13 @@ public class MainActivity extends FragmentActivity implements TimelineFragment.O
 		finish();
 	}
 
-	// Inflate the menu; this adds items to the action bar if it is present.
+	public void composeTo(Long tweetId) {
+		Intent i = new Intent(getBaseContext(), ComposeActivity.class);
+		i.putExtra("tweetId", tweetId);
+		startActivityForResult(i, REQUEST_CODE);
+	}
+
+		// Inflate the menu; this adds items to the action bar if it is present.
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.twitter, menu);

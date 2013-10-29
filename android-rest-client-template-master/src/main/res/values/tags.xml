@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<item name="TWITTER_HANDLE" type="id"/>
+	<item name="TWITTER_POST_ID" type="id"/>
+	<item name="TWEET_ID" type="id"/>
 </resources>

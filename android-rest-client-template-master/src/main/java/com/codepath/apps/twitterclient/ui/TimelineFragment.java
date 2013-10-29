@@ -7,15 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
+import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import eu.erikw.PullToRefreshListView;
 
@@ -40,6 +44,7 @@ public class TimelineFragment extends Fragment {
 	private OnDataUpdateListener listener;
 
 	public interface OnDataUpdateListener {
+		public void composeTo(Long tweetId);
 		public void loadMore(LoadType loadType);
 		public void onError(Throwable e, String response);
 	};
@@ -64,6 +69,14 @@ public class TimelineFragment extends Fragment {
 		initMinMax();
 
 		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
+
+		lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				Long tweetId = (Long) view.getTag(R.id.TWEET_ID);
+				listener.composeTo(tweetId);
+			}
+		});
 
 		return v;
 	}

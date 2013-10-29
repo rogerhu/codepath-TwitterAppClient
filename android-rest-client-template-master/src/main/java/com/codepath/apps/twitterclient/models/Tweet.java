@@ -158,15 +158,12 @@ public class Tweet extends Model implements BaseModel {
         this.user = u;
     }
 
-//	public String getUserId() {
-//		return userId;
-//	}
-
-/*	// Record Finders
-	public static SampleModel byId(long id) {
-	   return new Select().from(SampleModel.class).where("id = ?", id).executeSingle();
+	// Record finders
+	public static Tweet byId(Long tweetId) {
+		return new Select().from(Tweet.class).where("id = ?", tweetId).executeSingle();
 	}
-	
+
+/*
 	public static ArrayList<SampleModel> recentItems() {
       return new Select().from(SampleModel.class).orderBy("id DESC").limit("300").execute();
 	}*/

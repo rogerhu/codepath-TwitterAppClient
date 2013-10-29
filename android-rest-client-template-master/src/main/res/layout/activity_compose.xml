@@ -22,7 +22,7 @@
             android:text="@string/tweet"
             android:id="@+id/button"
             android:layout_alignParentRight="true"
-            android:onClick="composeTweet" />
+            android:onClick="sendTweet" />
 
     </RelativeLayout>
 
