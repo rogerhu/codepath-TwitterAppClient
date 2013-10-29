@@ -2,9 +2,11 @@ package com.codepath.apps.twitterclient.ui.activities;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.FragmentManager;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -34,7 +36,6 @@ public class HomeActivity extends FragmentActivity implements BaseTimelineFragme
 	};
 
 	TabTypes curTab;
-	BaseTimelineFragment curFragment;
 	ActionBar actionBar;
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -113,4 +114,5 @@ public class HomeActivity extends FragmentActivity implements BaseTimelineFragme
 		getMenuInflater().inflate(R.menu.twitter, menu);
 		return true;
 	}
+
 }

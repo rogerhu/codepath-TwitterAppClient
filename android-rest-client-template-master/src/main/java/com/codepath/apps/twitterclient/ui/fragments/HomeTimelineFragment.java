@@ -1,5 +1,6 @@
 package com.codepath.apps.twitterclient.ui.fragments;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,8 +19,14 @@ public class HomeTimelineFragment extends BaseTimelineFragment {
 
 	public boolean offlineMode;
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
+
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.twitter, menu);
+		inflater.inflate(R.menu.offline_menu, menu);
 	}
 
 	@Override
@@ -39,25 +46,33 @@ public class HomeTimelineFragment extends BaseTimelineFragment {
 		}
 	}
 
-	public void offlineMode(MenuItem item) {
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
 
-		if (!item.isChecked()) {
-			item.setChecked(true);
+		switch (item.getItemId()) {
+			case R.id.offline_mode:
 
-			offlineMode = true;
+				if (!item.isChecked()) {
+					item.setChecked(true);
 
-			tweetAdapter.clear();
-			initMinMax();
-			List<Tweet> tweets = Tweet.getRecentItems();
-			if (tweets.size() > 0) {
-				tweetAdapter.addAll(tweets);
-			}
-		} else {
-			offlineMode = false;
-			item.setChecked(false);
-			tweetAdapter.clear();
-			initMinMax();
-			loadMore(LoadType.OLDER_TWEETS);
+					offlineMode = true;
+
+					tweetAdapter.clear();
+					initMinMax();
+					List<Tweet> tweets = Tweet.getRecentItems();
+					if (tweets.size() > 0) {
+						tweetAdapter.addAll(tweets);
+					}
+				} else {
+					offlineMode = false;
+					item.setChecked(false);
+					tweetAdapter.clear();
+					initMinMax();
+					loadMore(LoadType.OLDER_TWEETS);
+				}
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
 	}
 }

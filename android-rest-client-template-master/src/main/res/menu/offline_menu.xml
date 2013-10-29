@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<item
+		android:id="@+id/offline_mode"
+		android:orderInCategory="100"
+		android:showAsAction="withText"
+		android:title="@string/offline_mode"
+		android:checkable="true"/>
+
+</menu>
