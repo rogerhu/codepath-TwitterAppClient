@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.models.User;
+import com.codepath.apps.twitterclient.ui.activities.ProfileActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;

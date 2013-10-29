@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.activities;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -15,6 +15,8 @@ import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
+import com.codepath.apps.twitterclient.ui.fragments.TimelineFragment;
+import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.lang.reflect.InvocationTargetException;

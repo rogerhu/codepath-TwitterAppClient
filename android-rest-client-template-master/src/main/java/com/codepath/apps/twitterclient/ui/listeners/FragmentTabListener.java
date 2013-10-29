@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.listeners;
 
 import android.support.v4.app.FragmentActivity;
 

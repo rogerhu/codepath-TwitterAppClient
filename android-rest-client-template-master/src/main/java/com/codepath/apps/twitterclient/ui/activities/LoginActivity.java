@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,7 +1,5 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.activities;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -13,19 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.models.User;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.codepath.apps.twitterclient.ui.fragments.TimelineFragment;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 /**
  * Created by rhu on 10/26/13.

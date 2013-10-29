@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -35,7 +35,7 @@ public class ComposeActivity extends Activity {
 
 		    Log.d("debug", "Composing to " + replyToTweet.getUser().getTwitterHandle());
 		    EditText tweet = (EditText) findViewById(R.id.editText);
-		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle()+ " ");
+		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle() + " ");
 	    }
     }
 

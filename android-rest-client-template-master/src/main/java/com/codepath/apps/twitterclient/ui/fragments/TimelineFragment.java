@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.ui;
+package com.codepath.apps.twitterclient.ui.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,19 +7,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import com.activeandroid.query.Select;
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.ui.listeners.EndlessScrollListener;
+import com.codepath.apps.twitterclient.ui.adapters.TweetAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import eu.erikw.PullToRefreshListView;
 
