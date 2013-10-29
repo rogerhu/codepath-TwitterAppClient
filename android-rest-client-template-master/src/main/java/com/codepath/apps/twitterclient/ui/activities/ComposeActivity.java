@@ -3,9 +3,12 @@ package com.codepath.apps.twitterclient.ui.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.R;
@@ -37,6 +40,26 @@ public class ComposeActivity extends Activity {
 		    EditText tweet = (EditText) findViewById(R.id.editText);
 		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle() + " ");
 	    }
+
+	    EditText etValue = (EditText) findViewById(R.id.editText);
+	    etValue.addTextChangedListener(new TextWatcher() {
+		    @Override
+	        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+		    }
+
+		    @Override
+		    public void beforeTextChanged(CharSequence s, int start, int before, int count) {
+		    }
+
+		    @Override
+		    public void afterTextChanged(Editable s) {
+			    int totalCount = 140;
+
+			    TextView charCount = (TextView) findViewById(R.id.charCount);
+			    charCount.setText(String.valueOf(totalCount - s.length()));
+		    }
+	    });
     }
 
     public void cancelCompose(View v) {

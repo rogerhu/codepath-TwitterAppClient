@@ -45,16 +45,13 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
                    user.getTwitterHandle() + "</font></small>";
 
 	    convertView.setTag(R.id.TWEET_ID, tweet.getId());
-//	    convertView.setTag(R.id.TWITTER_HANDLE, user.getTwitterHandle().toString());
-//	    convertView.setTag(R.id.TWITTER_POST_ID, tweet.getPostId());
-
-	    final View itemView = convertView;
+	    imageView.setTag(R.id.TWITTER_HANDLE, tweet.getUser().getTwitterHandle());
 
 	    imageView.setOnClickListener(new View.OnClickListener() {
 		    @Override
 		    public void onClick(View view) {
 			    Context ctx = view.getContext();
-			    String twitterHandle = (String) itemView.getTag(R.id.TWITTER_HANDLE);
+			    String twitterHandle = (String) view.getTag(R.id.TWITTER_HANDLE);
 			    Intent i = new Intent(ctx, ProfileActivity.class);
 			    i.putExtra("screenName", twitterHandle);
 			    Log.d("debug", "Launching with screenName " + twitterHandle);

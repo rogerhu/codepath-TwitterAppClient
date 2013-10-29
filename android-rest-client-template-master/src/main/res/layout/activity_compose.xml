@@ -16,11 +16,21 @@
             android:layout_gravity="right"
             android:onClick="cancelCompose" />
 
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBottom="@+id/tweetButton"
+		    android:textSize="30sp"
+	        android:gravity="center"
+	        android:text="140"
+	        android:id="@+id/charCount"
+	        android:layout_toLeftOf="@+id/tweetButton"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tweet"
-            android:id="@+id/button"
+            android:id="@+id/tweetButton"
             android:layout_alignParentRight="true"
             android:onClick="sendTweet" />
 
@@ -49,7 +59,7 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Tweet"
+        android:hint="@string/whats_happening"
         android:id="@+id/editText" />
 
 

@@ -10,5 +10,6 @@
     <string name="logout">Logout</string>
 	<string name="offline_mode">Offline Mode</string>
 	<string name="open_profile">Open Profile</string>
+	<string name="whats_happening">What\'s happening?</string>
 
 </resources>
