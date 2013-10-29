@@ -33,6 +33,28 @@ public class ComposeActivity extends Activity {
 
 	    Long tweetId = getIntent().getLongExtra("tweetId", 0);
 
+
+	    EditText etValue = (EditText) findViewById(R.id.editText);
+	    etValue.addTextChangedListener(new TextWatcher() {
+		    int TOTAL_COUNT = 140;
+
+		    @Override
+	        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+		    }
+
+		    @Override
+		    public void beforeTextChanged(CharSequence s, int start, int before, int count) {
+
+		    }
+
+		    @Override
+		    public void afterTextChanged(Editable s) {
+			    TextView charCount = (TextView) findViewById(R.id.charCount);
+			    charCount.setText(String.valueOf(TOTAL_COUNT - s.length()));
+		    }
+	    });
+
 	    if (tweetId != 0) {
 		    replyToTweet = Tweet.byId(tweetId);
 
@@ -41,25 +63,6 @@ public class ComposeActivity extends Activity {
 		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle() + " ");
 	    }
 
-	    EditText etValue = (EditText) findViewById(R.id.editText);
-	    etValue.addTextChangedListener(new TextWatcher() {
-		    @Override
-	        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-		    }
-
-		    @Override
-		    public void beforeTextChanged(CharSequence s, int start, int before, int count) {
-		    }
-
-		    @Override
-		    public void afterTextChanged(Editable s) {
-			    int totalCount = 140;
-
-			    TextView charCount = (TextView) findViewById(R.id.charCount);
-			    charCount.setText(String.valueOf(totalCount - s.length()));
-		    }
-	    });
     }
 
     public void cancelCompose(View v) {
