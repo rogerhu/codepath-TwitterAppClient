@@ -13,32 +13,28 @@ import android.widget.Toast;
 
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.network.RestClientApp;
-import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.codepath.apps.twitterclient.ui.fragments.TimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.HomeTimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.MentionsTimelineFragment;
 import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 
 /**
  * Created by rhu on 10/23/13.
  */
-public class HomeActivity extends FragmentActivity implements TimelineFragment.OnDataUpdateListener {
+public class HomeActivity extends FragmentActivity implements BaseTimelineFragment.OnDataUpdateListener {
 
 	private int REQUEST_CODE = 123;
-	private int TWEET_PER_PAGE = 25;
 
 	TwitterClient client;
-
-	boolean offlineMode = false;
 
 	enum TabTypes {
 		HOME, MENTIONS
 	};
 
+	TabTypes curTab;
+	BaseTimelineFragment curFragment;
 	ActionBar actionBar;
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,60 +50,21 @@ public class HomeActivity extends FragmentActivity implements TimelineFragment.O
 		actionBar.setDisplayShowTitleEnabled(true);
 
 		Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.home).setTag(TabTypes.HOME);
-		tab1.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "home", TimelineFragment.class));
+		tab1.setTabListener(new FragmentTabListener<HomeTimelineFragment>(R.id.fl1, this, "home", HomeTimelineFragment.class));
 		actionBar.addTab(tab1);
 		actionBar.selectTab(tab1);
 
 		Tab tab2 = actionBar.newTab().setText("Mentions").setIcon(R.drawable.ic_launcher).setTag(TabTypes.MENTIONS);
-		tab2.setTabListener(new FragmentTabListener<TimelineFragment>(R.id.fl1, this, "mentions", TimelineFragment.class));
+		tab2.setTabListener(new FragmentTabListener<MentionsTimelineFragment>(R.id.fl1, this, "mentions", MentionsTimelineFragment.class));
 		actionBar.addTab(tab2);
+
+		getCurTab();
 	}
 
-	@Override
-	public void loadMore(final TimelineFragment.LoadType loadType) {
-
+	public void getCurTab() {
 		Tab selected = actionBar.getSelectedTab();
+		curTab = (TabTypes) selected.getTag();
 
-		if (selected == null) {
-			Log.d("debug", "No tab");
-			return;
-		}
-
-		TabTypes tabTag = (TabTypes) selected.getTag();
-
-		Method method;
-
-		try {
-			if (tabTag == TabTypes.HOME) {
-				method = client.getClass().getMethod("getHomeTimeline", long.class, long.class, int.class, AsyncHttpResponseHandler.class);
-			}
-			else {
-				method = client.getClass().getMethod("getMentionsTimeline", long.class, long.class, int.class, AsyncHttpResponseHandler.class);
-			}
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-			return;
-		}
-
-		TimelineFragment fragment = (TimelineFragment) getSupportFragmentManager().findFragmentById(R.id.fl1);
-			if (fragment == null) {
-				Log.d("debug", "fragment not there");
-			} else {
-				TweetJsonHttpResponseHandler handler = fragment.createTweetHandler(loadType);
-				try {
-					if (loadType == TimelineFragment.LoadType.NEW_TWEETS) {
-						Log.d("debug", "Looking for newer tweets");
-						method.invoke(client, fragment.getNewerTweets(), 0, TWEET_PER_PAGE, handler);
-					}
-					else {
-						Log.d("debug", "Looking for older tweets");
-						method.invoke(client, 0, fragment.getOlderTweets(), TWEET_PER_PAGE, handler);
-					}
-				} catch (IllegalAccessException e) {
-				}
-				catch (InvocationTargetException e) {
-				}
-			}
 	}
 
 	@Override
@@ -123,30 +80,6 @@ public class HomeActivity extends FragmentActivity implements TimelineFragment.O
 		});
 	}
 
-	public void offlineMode(MenuItem item) {
-
-		return;
-
-/*		if (item.isChecked() == false) {
-			item.setChecked(true);
-
-			offlineMode = true;
-			tweetAdapter.clear();
-			this.initMinMax();
-			List<Tweet> tweets = new Select().from(Tweet.class).orderBy("created_at DESC").execute();
-			if (tweets.size() > 0) {
-				tweetAdapter.addAll(tweets);
-			}
-		} else {
-			offlineMode = false;
-			item.setChecked(false);
-			tweetAdapter.clear();
-			this.initMinMax();
-			listener.loadMore();
-		}*/
-	}
-
-
 	public void openProfile(MenuItem item) {
 		Intent i = new Intent(getBaseContext(), ProfileActivity.class);
 		startActivity(i);
@@ -159,7 +92,6 @@ public class HomeActivity extends FragmentActivity implements TimelineFragment.O
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-			loadMore(TimelineFragment.LoadType.NEW_TWEETS);
 		}
 	}
 

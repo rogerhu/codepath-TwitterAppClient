@@ -30,8 +30,6 @@ public class TwitterClient extends OAuthBaseClient {
     public static final String REST_CONSUMER_SECRET = "O2R7JEgTZ4DnxohnkfyU284Dk3q1VCmNzHKrlPQyUO4"; // Change this
     public static final String REST_CALLBACK_URL = "oauth://cprest"; // Change this (here and in manifest)
 
-	public final String BLANK = "";
-
     // Defines the handler events for the OAuth flow
     public static interface OAuthAccessHandler {
         public void onLoginSuccess();
@@ -51,15 +49,14 @@ public class TwitterClient extends OAuthBaseClient {
 	public void getUserProfile(String screenName, AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("users/show.json");
 		RequestParams params = new RequestParams();
-
         params.put("screen_name", screenName);
 
 		client.get(apiUrl, params, handler);
 	}
 
-	public void getSelfTimeline(long newestTweet, long oldestTweet, int count, AsyncHttpResponseHandler handler) {
-		getUserTimeline(BLANK, newestTweet, oldestTweet, count, handler);
-	}
+/*	public void getSelfTimeline(long newestTweet, long oldestTweet, int count, AsyncHttpResponseHandler handler) {
+		getUserTimeline(null, newestTweet, oldestTweet, count, handler);
+	}*/
 
 	public void getUserTimeline(String screenName, long newestTweet, long oldestTweet, int count, AsyncHttpResponseHandler handler) {
 
@@ -67,7 +64,7 @@ public class TwitterClient extends OAuthBaseClient {
 
 		RequestParams params = new RequestParams();
 
-		if (!screenName.equals(BLANK)) {
+		if (screenName != null) {
 			params.put("screen_name", screenName);
 		}
 

@@ -163,8 +163,7 @@ public class Tweet extends Model implements BaseModel {
 		return new Select().from(Tweet.class).where("id = ?", tweetId).executeSingle();
 	}
 
-/*
-	public static ArrayList<SampleModel> recentItems() {
-      return new Select().from(SampleModel.class).orderBy("id DESC").limit("300").execute();
-	}*/
+	public static ArrayList<Tweet> getRecentItems() {
+		return new Select().from(Tweet.class).orderBy("created_at DESC").execute();
+	}
 }

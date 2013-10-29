@@ -13,9 +13,9 @@ import android.widget.Toast;
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.models.User;
 import com.codepath.apps.twitterclient.network.RestClientApp;
-import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.codepath.apps.twitterclient.ui.fragments.TimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.UserTimelineFragment;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 /**
  * Created by rhu on 10/26/13.
  */
-public class ProfileActivity extends FragmentActivity implements TimelineFragment.OnDataUpdateListener {
+public class ProfileActivity extends FragmentActivity implements BaseTimelineFragment.OnDataUpdateListener {
 
 	TwitterClient client;
 	User user;
@@ -42,9 +42,7 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 		setContentView(R.layout.activity_profile);
 
 		Intent i = getIntent();
-		String screenName = i.getStringExtra("screenName");
-
-		client = RestClientApp.getRestClient();
+		final String screenName = i.getStringExtra("screenName");
 
 		JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
 			@Override
@@ -55,17 +53,19 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 
 				Log.d("debug", "Searching for user " + user.getTwitterHandle());
 				FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-				ft.replace(R.id.profileTweets, new TimelineFragment());
+				ft.replace(R.id.profileTweets, new UserTimelineFragment(screenName));
 				ft.commit();
 				setProgressBarIndeterminateVisibility(false);
 			}
 		};
 
+		client = RestClientApp.getRestClient();
+
+		// Query the user profile first.
 		if (screenName == null) {
 			client.getSelfProfile(handler);
-		}
-		else {
-			client.getUserProfile(screenName, handler);
+		} else {
+    		client.getUserProfile(screenName, handler);
 		}
 	}
 
@@ -86,26 +86,6 @@ public class ProfileActivity extends FragmentActivity implements TimelineFragmen
 
 		TextView profileDescription = (TextView) findViewById(R.id.profileDescription);
 		profileDescription.setText(user.getDescription());
-
-	}
-
-	@Override
-	public void loadMore(final TimelineFragment.LoadType loadType) {
-		TimelineFragment fragment = (TimelineFragment) getSupportFragmentManager().findFragmentById(R.id.profileTweets);
-
-		if (user == null) {
-			Log.d("debug", "User object has not been set..not loading");
-			return;
-		}
-
-		TweetJsonHttpResponseHandler handler = fragment.createTweetHandler(loadType);
-
-		if (loadType == TimelineFragment.LoadType.NEW_TWEETS) {
-			client.getUserTimeline(user.getTwitterHandle(), fragment.getNewerTweets(), 0, TWEETS_PER_PAGE, handler);
-		} else {
-			client.getUserTimeline(user.getTwitterHandle(), 0, fragment.getOlderTweets(), TWEETS_PER_PAGE, handler);
-
-		}
 
 	}
 

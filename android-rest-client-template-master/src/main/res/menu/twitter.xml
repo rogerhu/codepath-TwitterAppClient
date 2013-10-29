@@ -17,14 +17,6 @@
 		android:onClick="openProfile"/>
 
 	<item
-		android:id="@+id/offline_mode"
-		android:orderInCategory="100"
-		android:showAsAction="withText"
-		android:title="@string/offline_mode"
-		android:checkable="true"
-		android:onClick="offlineMode"></item>
-
-	<item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="withText"

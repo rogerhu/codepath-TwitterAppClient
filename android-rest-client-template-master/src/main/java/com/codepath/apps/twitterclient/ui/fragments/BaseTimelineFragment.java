@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.network.TwitterClient;
 import com.codepath.apps.twitterclient.ui.listeners.EndlessScrollListener;
 import com.codepath.apps.twitterclient.ui.adapters.TweetAdapter;
 
@@ -25,9 +25,10 @@ import eu.erikw.PullToRefreshListView;
 /**
  * Created by rhu on 10/19/13.
  */
-public class TimelineFragment extends Fragment {
+public abstract class BaseTimelineFragment extends Fragment {
 
 	final int UNINITIALIZED = -1;
+	final int TWEET_PER_PAGE = 25;
 
 	long maxId;
 	long minId;
@@ -37,14 +38,14 @@ public class TimelineFragment extends Fragment {
 		OLDER_TWEETS
 	}
 
-	TweetAdapter tweetAdapter;
+	public TweetAdapter tweetAdapter;
+	protected TwitterClient client;
 
 	PullToRefreshListView lvItems;
-	private OnDataUpdateListener listener;
+	protected OnDataUpdateListener listener;
 
 	public interface OnDataUpdateListener {
 		public void composeTo(Long tweetId);
-		public void loadMore(LoadType loadType);
 		public void onError(Throwable e, String response);
 	};
 
@@ -77,6 +78,8 @@ public class TimelineFragment extends Fragment {
 			}
 		});
 
+		client = RestClientApp.getRestClient();
+
 		return v;
 	}
 
@@ -90,20 +93,16 @@ public class TimelineFragment extends Fragment {
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
 				Log.d("debug", "scroll listener");
-				listener.loadMore(LoadType.OLDER_TWEETS);
+				loadMore(LoadType.OLDER_TWEETS);
 			}
 		});
 		lvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
 			@Override
 			public void onRefresh() {
-				listener.loadMore(LoadType.NEW_TWEETS);
+				loadMore(LoadType.NEW_TWEETS);
 			}
 		});
-	}
-
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		inflater.inflate(R.menu.twitter, menu);
 	}
 
 	public void initMinMax() {
@@ -115,9 +114,9 @@ public class TimelineFragment extends Fragment {
 
 		Long postId = tweet.getPostId();
 
-		if (TimelineFragment.this.maxId == UNINITIALIZED || postId > TimelineFragment.this.maxId) {
+		if (BaseTimelineFragment.this.maxId == UNINITIALIZED || postId > BaseTimelineFragment.this.maxId) {
 			this.maxId = postId;
-		} else if (TimelineFragment.this.minId == UNINITIALIZED || postId < TimelineFragment.this.minId) {
+		} else if (BaseTimelineFragment.this.minId == UNINITIALIZED || postId < BaseTimelineFragment.this.minId) {
 			this.minId = postId;
 		}
 	}
@@ -152,12 +151,14 @@ public class TimelineFragment extends Fragment {
 		handler.addCallback(new TweetCallbackHandler() {
 			@Override
 			public void processItem(Tweet t) {
-				TimelineFragment.this.addTweet(t, loadType);
+				BaseTimelineFragment.this.addTweet(t, loadType);
 			}
 		}
 		);
 		return handler;
 	}
+
+	public abstract void loadMore(LoadType loadType);
 
 	public long getNewerTweets() {
 		return maxId;
