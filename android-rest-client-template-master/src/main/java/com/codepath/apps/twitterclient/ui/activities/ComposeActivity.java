@@ -1,5 +1,6 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +31,8 @@ public class ComposeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
-
+	    ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	    Long tweetId = getIntent().getLongExtra("tweetId", 0);
 
 
