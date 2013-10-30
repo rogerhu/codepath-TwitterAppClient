@@ -50,12 +50,12 @@ public class HomeActivity extends FragmentActivity implements BaseTimelineFragme
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(true);
 
-		Tab tab1 = actionBar.newTab().setText("Home").setIcon(R.drawable.home).setTag(TabTypes.HOME);
+		Tab tab1 = actionBar.newTab().setIcon(R.drawable.home).setTag(TabTypes.HOME);
 		tab1.setTabListener(new FragmentTabListener<HomeTimelineFragment>(R.id.fl1, this, "home", HomeTimelineFragment.class));
 		actionBar.addTab(tab1);
 		actionBar.selectTab(tab1);
 
-		Tab tab2 = actionBar.newTab().setText("Mentions").setIcon(R.drawable.ic_launcher).setTag(TabTypes.MENTIONS);
+		Tab tab2 = actionBar.newTab().setIcon(R.drawable.bubble).setTag(TabTypes.MENTIONS);
 		tab2.setTabListener(new FragmentTabListener<MentionsTimelineFragment>(R.id.fl1, this, "mentions", MentionsTimelineFragment.class));
 		actionBar.addTab(tab2);
 
