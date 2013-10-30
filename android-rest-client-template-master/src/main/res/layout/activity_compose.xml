@@ -5,6 +5,8 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+	    style="@style/GrayBar"
+	    android:background="#ececec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,6 +19,7 @@
             android:onClick="cancelCompose" />
 
 	    <TextView
+		    android:padding="5dp"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_alignBottom="@+id/tweetButton"
@@ -27,6 +30,7 @@
 	        android:layout_toLeftOf="@+id/tweetButton"/>
 
         <Button
+	        style="@style/PrimaryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tweet"

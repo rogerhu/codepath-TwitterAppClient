@@ -22,4 +22,18 @@
 		<item name="android:textSize">14sp</item>
 		<item name="android:textStyle">bold</item>
 	</style>
+
+	<style name="GrayBar">
+		<item name="android:background">#ececec</item>
+	</style>
+
+	<style name="PrimaryButton" parent="@android:style/Widget.Button">
+		<item name="android:gravity">center_vertical|center_horizontal</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:background">@drawable/states_button</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:focusable">true</item>
+		<item name="android:clickable">true</item>
+	</style>
 </resources>

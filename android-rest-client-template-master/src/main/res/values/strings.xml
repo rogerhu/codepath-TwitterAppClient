@@ -13,5 +13,6 @@
 	<string name="whats_happening">What\'s happening?</string>
 	<string name="followers">FOLLOWERS</string>
 	<string name="following">FOLLOWING</string>
+	<string name="char_max">140</string>
 
 </resources>
