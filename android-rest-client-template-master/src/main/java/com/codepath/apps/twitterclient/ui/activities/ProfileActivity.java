@@ -78,11 +78,11 @@ public class ProfileActivity extends FragmentActivity implements BaseTimelineFra
 		TextView profileName = (TextView) findViewById(R.id.profileName);
 		profileName.setText(user.getFullName());
 
-		TextView followerText = (TextView) findViewById(R.id.followerText);
-		followerText.setText(user.getFollowersCount().toString() + " Followers");
+		TextView followerText = (TextView) findViewById(R.id.followerNum);
+		followerText.setText(user.getFollowersCount().toString());
 
-		TextView followingText = (TextView) findViewById(R.id.followingText);
-		followingText.setText(user.getFriendsCount().toString() + " Following");
+		TextView followingText = (TextView) findViewById(R.id.followingNum);
+		followingText.setText(user.getFriendsCount().toString());
 
 		TextView profileDescription = (TextView) findViewById(R.id.profileDescription);
 		profileDescription.setText(user.getDescription());

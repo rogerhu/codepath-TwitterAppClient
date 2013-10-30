@@ -38,24 +38,62 @@
 		</LinearLayout>
 	</RelativeLayout>
 
-	<LinearLayout
+	<TableLayout
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="left">
+		android:layout_marginBottom="10dp">
+
+		<TableRow
+			android:id="@+id/tableRow1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp">
+
+			<TextView
+				style="@style/TweetNum"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:gravity="center"
+				android:id="@+id/followerNum"
+				android:layout_weight="1"
+				/>
+
+			<TextView
+				style="@style/TweetNum"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:gravity="center"
+				android:id="@+id/followingNum"
+				android:layout_weight="1"/>
+
+		</TableRow>
+
+		<TableRow android:id="@+id/tableRow2"
+		          android:layout_width="fill_parent"
+		          android:layout_height="wrap_content"
+				  android:gravity="center"
+				  android:layout_marginLeft="10dp"
+				  android:layout_marginRight="10dp">
 
 		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:id="@+id/followerText"
-			android:layout_weight="1"/>
+				android:layout_height="wrap_content"
+			    android:layout_width="wrap_content"
+			    android:text="@string/followers"
+			    android:gravity="center"
+			    android:layout_weight="1"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:id="@+id/followingText"
-			android:layout_weight="1"/>
-	</LinearLayout>
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="@string/following"
+				android:gravity="center"
+				android:layout_weight="1"/>
+
+		</TableRow>
+
+	</TableLayout>
 
 	<FrameLayout
 		android:layout_height="wrap_content"
