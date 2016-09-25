@@ -1,15 +1,5 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.models.User;
 import com.codepath.apps.twitterclient.network.RestClientApp;
@@ -20,6 +10,18 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONObject;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by rhu on 10/26/13.
@@ -46,7 +48,8 @@ public class ProfileActivity extends FragmentActivity implements BaseTimelineFra
 
 		JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
 			@Override
-			public void onSuccess(JSONObject json) {
+			public void onSuccess(int statusCode, Header[] headers,
+					JSONObject json) {
 				Log.d("debug", "Got " + json.toString());
 				user = new User(json);
 				updateProfile();

@@ -1,15 +1,17 @@
 package com.codepath.apps.twitterclient.network;
 
-import android.util.Log;
-
-import com.codepath.apps.twitterclient.ui.adapters.TweetAdapter;
 import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.ui.adapters.TweetAdapter;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by rhu on 10/20/13.
@@ -36,7 +38,7 @@ public class TweetJsonHttpResponseHandler extends JsonHttpResponseHandler {
     }
 
     @Override
-    public void onSuccess(JSONArray jsonTweets) {
+    public void onSuccess(int statusCode, Header[] headers, JSONArray jsonTweets) {
         ArrayList<Tweet> tweets = new ArrayList<Tweet>();
         tweets = Tweet.fromJson(jsonTweets);
 
@@ -55,8 +57,9 @@ public class TweetJsonHttpResponseHandler extends JsonHttpResponseHandler {
     }
 
     @Override
-    public void onFailure(Throwable e, String errorResponse) {
-        Log.d("debug", "Failed request" + errorResponse);
+    public void onFailure(int statusCode, Header[] headers, String responseString,
+            Throwable e) {
+        Log.d("debug", "Failed request" + responseString);
         e.printStackTrace();
     }
 

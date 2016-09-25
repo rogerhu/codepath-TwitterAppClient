@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android-rest-client-template-master/android-rest-client-template-master.iml" filepath="$PROJECT_DIR$/android-rest-client-template-master/android-rest-client-template-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codepath-TwitterAppClient.iml" filepath="$PROJECT_DIR$/.idea/modules/codepath-TwitterAppClient.iml" />
     </modules>
   </component>
 </project>
-

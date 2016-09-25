@@ -1,5 +1,13 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.network.RestClientApp;
+import com.codepath.apps.twitterclient.network.TwitterClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONObject;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,13 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Tweet;
-import com.codepath.apps.twitterclient.network.RestClientApp;
-import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONObject;
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by rhu on 10/19/13.
@@ -92,8 +94,8 @@ public class ComposeActivity extends Activity {
 
         client.postTweet(text, replyToId, new JsonHttpResponseHandler() {
 
-            @Override
-            public void onSuccess(JSONObject response) {
+		@Override
+		public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Toast.makeText(getBaseContext(), "Tweet posted!", Toast.LENGTH_SHORT).show();
                 Intent data = new Intent();
                 data.putExtra("response", response.toString());
