@@ -3,7 +3,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 apply plugin: 'com.android.application'
@@ -11,6 +12,7 @@ apply plugin: 'com.android.application'
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://www.jitpack.io" }
     }
 }
 
@@ -26,11 +28,19 @@ android {
 
 dependencies {
 	compile 'com.android.support:appcompat-v7:+'
-    compile files('libs/activeandroid-3.0.jar')
-    compile('com.codepath.libraries:android-oauth-handler:1.0.0@aar') {
-        transitive = true
-    }
+    compile 'com.codepath.libraries:android-oauth-handler:1.1.0'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile files('libs/universal-image-loader-1.8.4.jar')
     compile project('PullToRefresh')
+    compile 'com.facebook.stetho:stetho:1.4.1'
+}
+
+apply plugin: 'com.neenbedankt.android-apt'
+
+def dbflow_version = "3.1.1"
+
+dependencies {
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 }

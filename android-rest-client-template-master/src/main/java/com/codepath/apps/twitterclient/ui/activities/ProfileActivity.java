@@ -13,8 +13,8 @@ import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
 import android.widget.ImageView;
@@ -26,7 +26,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by rhu on 10/26/13.
  */
-public class ProfileActivity extends FragmentActivity implements BaseTimelineFragment.OnDataUpdateListener {
+public class ProfileActivity extends AppCompatActivity implements BaseTimelineFragment.OnDataUpdateListener {
 
 	TwitterClient client;
 	User user;

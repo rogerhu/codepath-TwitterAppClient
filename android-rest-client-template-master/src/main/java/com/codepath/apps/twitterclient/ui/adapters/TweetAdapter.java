@@ -1,5 +1,11 @@
 package com.codepath.apps.twitterclient.ui.adapters;
 
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.models.User;
+import com.codepath.apps.twitterclient.ui.activities.ProfileActivity;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.content.Context;
 import android.content.Intent;
 import android.text.Html;
@@ -9,12 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Tweet;
-import com.codepath.apps.twitterclient.models.User;
-import com.codepath.apps.twitterclient.ui.activities.ProfileActivity;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class TweetAdapter extends ArrayAdapter<Tweet> {
         String formattedName = "<b>" + user.getFullName() + "</b>" + " <small><font color='#7777777'>@" +
                    user.getTwitterHandle() + "</font></small>";
 
-	    convertView.setTag(R.id.TWEET_ID, tweet.getId());
+	    convertView.setTag(R.id.TWEET_ID, tweet.getPostId());
 	    imageView.setTag(R.id.TWITTER_HANDLE, tweet.getUser().getTwitterHandle());
 
 	    imageView.setOnClickListener(new View.OnClickListener() {

@@ -1,16 +1,17 @@
 package com.codepath.apps.twitterclient.models;
 
-import android.text.format.DateUtils;
-import android.util.Log;
-
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
-import com.activeandroid.query.Select;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.ForeignKey;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.annotation.Unique;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.text.format.DateUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,16 +21,19 @@ import java.util.List;
 import java.util.Locale;
 
 
-@Table(name = "Tweets")
-public class Tweet extends Model implements BaseModel {
+@Table(database = MyDatabase.class)
+public class Tweet extends com.raizlabs.android.dbflow.structure.BaseModel implements MyBaseModel {
 
-	@Column(name="user")
-    private User user;
+    @Column
+    @ForeignKey(saveForeignKeyModel = false)
+    User user;
 
     // Define table fields
     @Column(name = "text")
     String text;
 
+    @PrimaryKey
+    @Unique
     @Column(name = "post_id")
     Long post_id;
 
@@ -58,7 +62,9 @@ public class Tweet extends Model implements BaseModel {
 
             JSONObject jsonUser = object.getJSONObject("user");
             try {
-                this.user = ModelCreator.createOrUpdate(jsonUser, String.valueOf(User.getUniqueId(jsonUser)), "twitter_id", User.class);
+                this.user = ModelCreator
+                        .createOrUpdate(jsonUser, User.getUniqueId(jsonUser),
+                                User_Table.twitter_id, User.class);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
                 return;
@@ -73,7 +79,8 @@ public class Tweet extends Model implements BaseModel {
         }
 
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy", Locale.getDefault());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy",
+                    Locale.getDefault());
             this.created_at = dateFormat.parse(creationString);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -92,15 +99,17 @@ public class Tweet extends Model implements BaseModel {
                 continue;
             }
 
-	        try {
-		        Tweet tweet = ModelCreator.createOrUpdate(tweetJson, String.valueOf(getUniqueId(tweetJson)), "post_id", Tweet.class);
-		        tweets.add(tweet);
+            try {
+                Tweet tweet = ModelCreator
+                        .createOrUpdate(tweetJson, getUniqueId(tweetJson),
+                                Tweet_Table.post_id, Tweet.class);
+                tweets.add(tweet);
 
-	        } catch (IllegalAccessException e) {
-		        e.printStackTrace();
-	        } catch (InstantiationException e) {
-		        e.printStackTrace();
-	        }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
         }
 
         return tweets;
@@ -133,7 +142,9 @@ public class Tweet extends Model implements BaseModel {
 
     public String getTimestamp() {
         String result;
-        result = (String) DateUtils.getRelativeTimeSpanString(this.created_at.getTime(), System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS);
+        result = (String) DateUtils
+                .getRelativeTimeSpanString(this.created_at.getTime(), System.currentTimeMillis(),
+                        DateUtils.MINUTE_IN_MILLIS);
         return result;
     }
 
@@ -158,12 +169,14 @@ public class Tweet extends Model implements BaseModel {
         this.user = u;
     }
 
-	// Record finders
-	public static Tweet byId(Long tweetId) {
-		return new Select().from(Tweet.class).where("id = ?", tweetId).executeSingle();
-	}
+    // Record finders
+    public static Tweet byId(Long tweetId) {
+        return SQLite.select().from(Tweet.class).where(Tweet_Table.post_id.eq(tweetId))
+                .querySingle();
 
-	public static ArrayList<Tweet> getRecentItems() {
-		return new Select().from(Tweet.class).orderBy("created_at DESC").execute();
-	}
+    }
+
+    public static List<Tweet> getRecentItems() {
+        return SQLite.select().from(Tweet.class).orderBy(Tweet_Table.created_at, false).queryList();
+    }
 }

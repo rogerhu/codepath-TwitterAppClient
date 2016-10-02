@@ -1,18 +1,5 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.FragmentManager;
-import android.content.Intent;
-
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TwitterClient;
@@ -21,11 +8,20 @@ import com.codepath.apps.twitterclient.ui.fragments.HomeTimelineFragment;
 import com.codepath.apps.twitterclient.ui.fragments.MentionsTimelineFragment;
 import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 
 /**
  * Created by rhu on 10/23/13.
  */
-public class HomeActivity extends FragmentActivity implements BaseTimelineFragment.OnDataUpdateListener {
+public class HomeActivity extends AppCompatActivity implements BaseTimelineFragment.OnDataUpdateListener {
 
 	private int REQUEST_CODE = 123;
 
@@ -46,16 +42,16 @@ public class HomeActivity extends FragmentActivity implements BaseTimelineFragme
 	}
 
 	private void setUpTabs() {
-		actionBar = getActionBar();
+		actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowTitleEnabled(true);
 
-		Tab tab1 = actionBar.newTab().setIcon(R.drawable.home).setTag(TabTypes.HOME);
+		ActionBar.Tab tab1 = actionBar.newTab().setIcon(R.drawable.home).setTag(TabTypes.HOME);
 		tab1.setTabListener(new FragmentTabListener<HomeTimelineFragment>(R.id.fl1, this, "home", HomeTimelineFragment.class));
 		actionBar.addTab(tab1);
 		actionBar.selectTab(tab1);
 
-		Tab tab2 = actionBar.newTab().setIcon(R.drawable.bubble).setTag(TabTypes.MENTIONS);
+		ActionBar.Tab tab2 = actionBar.newTab().setIcon(R.drawable.bubble).setTag(TabTypes.MENTIONS);
 		tab2.setTabListener(new FragmentTabListener<MentionsTimelineFragment>(R.id.fl1, this, "mentions", MentionsTimelineFragment.class));
 		actionBar.addTab(tab2);
 
@@ -63,7 +59,7 @@ public class HomeActivity extends FragmentActivity implements BaseTimelineFragme
 	}
 
 	public void getCurTab() {
-		Tab selected = actionBar.getSelectedTab();
+		ActionBar.Tab selected = actionBar.getSelectedTab();
 		curTab = (TabTypes) selected.getTag();
 
 	}

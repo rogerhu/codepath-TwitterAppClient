@@ -1,20 +1,31 @@
 package com.codepath.apps.twitterclient.models;
 
-import android.util.Log;
-
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.query.Select;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
+// BaseModel, not Model
+// @PrimaryKey
+// @ForeignKey cannot have column
+// SQLiteWrapper
+// compiling tables before Table_
+// types have to match
+//com.raizlabs.android.dbflow.structure.InvalidDBConfiguration: Model object: com.codepath.apps.twitterclient.models.Tweet is not registered with a Database. Did you forget an annotation?
+// instantRun
+// android.database.sqlite.SQLiteException: table Tweet has no column named user_twitter_id (code 1): , while compiling: INSERT INTO `Tweet`(`user_twitter_id`,`text`,`post_id`,`created_at`) VALUES (?,?,?,?)
+// debugging with stetho
+// https://github.com/Raizlabs/DBFlow/blob/master/usage2/Intro.md
+// https://github.com/Raizlabs/DBFlow/issues/993
 /**
  * Created by rhu on 10/19/13.
  */
-public class User extends Model implements BaseModel {
+@Table(database=MyDatabase.class)
+public class User extends BaseModel implements MyBaseModel {
+
     @Column(name = "name")
     String name;
 
@@ -24,8 +35,8 @@ public class User extends Model implements BaseModel {
     @Column(name = "profile_image_url")
     String profileImageUrl;
 
-    @Column(name = "twitter_id")
-    Long twitterId;
+    @PrimaryKey
+    Long twitter_id;
 
     @Column(name = "screen_name")
     String screenName;
@@ -53,7 +64,7 @@ public class User extends Model implements BaseModel {
 
 	public void parseJSON(JSONObject object) {
 
-        this.twitterId = getUniqueId(object);
+        this.twitter_id = getUniqueId(object);
 
         try {
             this.name = object.getString("name");
@@ -88,7 +99,7 @@ public class User extends Model implements BaseModel {
         return this.name;
     }
 
-    public Long getTwitterId() { return this.twitterId; }
+    public Long getTwitterId() { return this.twitter_id; }
 
     public String getTwitterHandle() {
         return this.screenName;

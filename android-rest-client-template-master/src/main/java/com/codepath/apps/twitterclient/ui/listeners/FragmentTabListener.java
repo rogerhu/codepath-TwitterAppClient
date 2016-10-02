@@ -1,13 +1,11 @@
 package com.codepath.apps.twitterclient.ui.listeners;
 
-import android.support.v4.app.FragmentActivity;
-
-import android.app.ActionBar.Tab;
-import android.app.ActionBar.TabListener;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 
-public class FragmentTabListener<T extends Fragment> implements TabListener {
+public class FragmentTabListener<T extends Fragment> implements ActionBar.TabListener {
 	private Fragment mFragment;
 	private final FragmentActivity mActivity;
 	private final String mTag;
@@ -35,7 +33,7 @@ public class FragmentTabListener<T extends Fragment> implements TabListener {
 
 	/* The following are each of the ActionBar.TabListener callbacks */
 
-	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
 		FragmentTransaction sft = mActivity.getSupportFragmentManager().beginTransaction();
 		// Check if the fragment is already initialized
 		if (mFragment == null) {
@@ -49,7 +47,7 @@ public class FragmentTabListener<T extends Fragment> implements TabListener {
 		sft.commit();
 	}
 
-	public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 		FragmentTransaction sft = mActivity.getSupportFragmentManager().beginTransaction();
 		if (mFragment != null) {
 			// Detach the fragment, because another one is being attached
@@ -58,7 +56,7 @@ public class FragmentTabListener<T extends Fragment> implements TabListener {
 		sft.commit();
 	}
 
-	public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 		// User selected the already selected tab. Usually do nothing.
 	}
 }

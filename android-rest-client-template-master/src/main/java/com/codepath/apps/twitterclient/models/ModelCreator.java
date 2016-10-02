@@ -1,11 +1,9 @@
 package com.codepath.apps.twitterclient.models;
 
-import android.util.Log;
+import com.raizlabs.android.dbflow.sql.language.Select;
+import com.raizlabs.android.dbflow.sql.language.property.Property;
+import com.raizlabs.android.dbflow.structure.Model;
 
-import com.activeandroid.Model;
-import com.activeandroid.query.Select;
-
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -13,10 +11,10 @@ import java.util.List;
 /**
  * Created by rhu on 10/21/13.
  */
-public class ModelCreator<T extends Model & BaseModel> {
+public class ModelCreator<T extends Model & MyBaseModel> {
 
-    public static <T extends Model & BaseModel> T createOrUpdate(JSONObject jsonObject, String uniqueId, String uniqueColumn, Class<T> classType) throws InstantiationException, IllegalAccessException{
-        List<T> items = new Select().from(classType).where(uniqueColumn + " = ?", uniqueId).execute();
+    public static <T extends Model & MyBaseModel> T createOrUpdate(JSONObject jsonObject, Long uniqueId, Property<Long> uniqueColumn, Class<T> classType) throws InstantiationException, IllegalAccessException{
+        List<T> items = new Select().from(classType).where(uniqueColumn.eq(uniqueId)).queryList();
 
         T entry;
         if (items.size() > 0) {
@@ -29,6 +27,7 @@ public class ModelCreator<T extends Model & BaseModel> {
 
         entry.parseJSON(jsonObject);
         entry.save();
+
         return entry;
     }
 
