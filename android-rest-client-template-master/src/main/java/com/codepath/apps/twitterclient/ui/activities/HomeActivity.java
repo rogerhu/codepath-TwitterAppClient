@@ -1,21 +1,36 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
 import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.models.Suggestions;
 import com.codepath.apps.twitterclient.network.RestClientApp;
 import com.codepath.apps.twitterclient.network.TwitterClient;
 import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
 import com.codepath.apps.twitterclient.ui.fragments.HomeTimelineFragment;
 import com.codepath.apps.twitterclient.ui.fragments.MentionsTimelineFragment;
 import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.ResponseHandlerInterface;
 
+import org.json.JSONObject;
+
+import android.app.SearchManager;
 import android.content.Intent;
+import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.HttpResponse;
 
 
 /**
@@ -33,12 +48,16 @@ public class HomeActivity extends AppCompatActivity implements BaseTimelineFragm
 
 	TabTypes curTab;
 	ActionBar actionBar;
+	Suggestions mSuggestions;
+	CursorAdapter mCursorAdapter;
+	Boolean isPending = false;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		setUpTabs();
 		client = RestClientApp.getRestClient();
+
 	}
 
 	private void setUpTabs() {
@@ -108,6 +127,71 @@ public class HomeActivity extends AppCompatActivity implements BaseTimelineFragm
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.twitter, menu);
+		MenuItem searchItem = menu.findItem(R.id.action_search);
+
+		// http://stackoverflow.com/questions/37657161/how-to-implement-search-view-autocomplete-in-actionbar-using-http-request
+
+		final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+		mCursorAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, null, new String[] { SearchManager.SUGGEST_COLUMN_TEXT_1 }, new int[] { android.R.id.text1});
+		searchView.setSuggestionsAdapter(mCursorAdapter);
+
+		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				// perform query here
+
+				// workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
+				// see https://code.google.com/p/android/issues/detail?id=24599
+				searchView.clearFocus();
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+
+				if (isPending || TextUtils.isEmpty(newText)) {
+					return false;
+				}
+
+				client.getTypeahead(newText, new JsonHttpResponseHandler() {
+
+					@Override
+					public void onPreProcessResponse(ResponseHandlerInterface instance,
+							HttpResponse response) {
+						isPending = true;
+					}
+
+					@Override
+					public void onSuccess(int statusCode, Header[] headers,
+							JSONObject response) {
+
+						Suggestions suggestions = new Suggestions(response);
+						MatrixCursor cursor = suggestions.getCursor();
+						searchView.getSuggestionsAdapter().changeCursor(cursor);
+						isPending = false;
+					}
+
+					@Override
+					public void onFailure(int statusCode, Header[] headers,
+							String responseString,
+							Throwable throwable) {
+						super.onFailure(statusCode, headers, responseString,
+								throwable);
+					}
+
+					@Override
+					public void onFailure(int statusCode, Header[] headers,
+							Throwable throwable,
+							JSONObject errorResponse) {
+						Log.d("failure", throwable.toString());
+					}
+				});
+				return true;
+			}
+
+		});
+
+
 		return true;
 	}
 

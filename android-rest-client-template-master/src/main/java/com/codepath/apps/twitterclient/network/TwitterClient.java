@@ -1,15 +1,14 @@
 package com.codepath.apps.twitterclient.network;
 
+import com.codepath.oauth.OAuthBaseClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
 import android.util.Log;
-
-import com.codepath.apps.twitterclient.models.Tweet;
-import com.codepath.oauth.OAuthBaseClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 /*
  * 
@@ -130,6 +129,20 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler);
 
     }
+
+    public void getTypeahead(String searchTerm, AsyncHttpResponseHandler handler) {
+        // https://twitter.com/i/search/typeahead.json?count=10&filters=true&q=tr&result_type=topics%2Cusers&src=SEARCH_BOX
+
+        RequestParams params = new RequestParams();
+        params.add("count", "100");
+        params.add("filters", "true");
+        params.add("result_type", "topics,users");
+        params.add("q", searchTerm);
+
+        String url = "https://twitter.com/i/search/typeahead.json";
+        client.get(url, params, handler);
+    }
+
     /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
      * 	  i.e getApiUrl("statuses/home_timeline.json");
      * 2. Define the parameters to pass to the request (query or body)
