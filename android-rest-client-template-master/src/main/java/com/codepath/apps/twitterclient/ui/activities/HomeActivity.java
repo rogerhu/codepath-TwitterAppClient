@@ -48,7 +48,6 @@ public class HomeActivity extends AppCompatActivity implements BaseTimelineFragm
 
 	TabTypes curTab;
 	ActionBar actionBar;
-	Suggestions mSuggestions;
 	CursorAdapter mCursorAdapter;
 	Boolean isPending = false;
 

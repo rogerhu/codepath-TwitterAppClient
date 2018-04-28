@@ -1,14 +1,13 @@
 package com.codepath.apps.twitterclient.network;
 
-import com.codepath.oauth.OAuthBaseClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.scribe.builder.api.Api;
-import org.scribe.builder.api.TwitterApi;
-
 import android.content.Context;
 import android.util.Log;
+
+import com.codepath.oauth.OAuthBaseClient;
+import com.github.scribejava.apis.TwitterApi;
+import com.github.scribejava.core.builder.api.BaseApi;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 /*
  * 
@@ -23,7 +22,7 @@ import android.util.Log;
  * 
  */
 public class TwitterClient extends OAuthBaseClient {
-    public static final Class<? extends Api> REST_API_CLASS = TwitterApi.class; // Change this
+    public static final BaseApi REST_API_CLASS = TwitterApi.instance(); // Change this
     public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
     public static final String REST_CONSUMER_KEY = "BbzrLsQgzSXlK4xvVorHwA";       // Change this
     public static final String REST_CONSUMER_SECRET = "O2R7JEgTZ4DnxohnkfyU284Dk3q1VCmNzHKrlPQyUO4"; // Change this

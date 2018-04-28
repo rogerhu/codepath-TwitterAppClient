@@ -6,6 +6,7 @@ import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.annotation.Unique;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
+import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +23,7 @@ import java.util.Locale;
 
 
 @Table(database = MyDatabase.class)
-public class Tweet extends com.raizlabs.android.dbflow.structure.BaseModel implements MyBaseModel {
+public class Tweet extends BaseModel implements MyBaseModel {
 
     @Column
     @ForeignKey(saveForeignKeyModel = false)
