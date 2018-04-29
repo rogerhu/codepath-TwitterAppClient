@@ -2,7 +2,7 @@ package com.codepath.apps.twitterclient.ui.activities;
 
 import com.codepath.apps.twitterclient.R;
 import com.codepath.apps.twitterclient.models.User;
-import com.codepath.apps.twitterclient.network.RestClientApp;
+import com.codepath.apps.twitterclient.RestClientApp;
 import com.codepath.apps.twitterclient.network.TwitterClient;
 import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
 import com.codepath.apps.twitterclient.ui.fragments.UserTimelineFragment;

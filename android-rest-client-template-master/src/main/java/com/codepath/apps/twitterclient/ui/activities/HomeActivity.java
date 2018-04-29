@@ -1,18 +1,5 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
-import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Suggestions;
-import com.codepath.apps.twitterclient.network.RestClientApp;
-import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
-import com.codepath.apps.twitterclient.ui.fragments.HomeTimelineFragment;
-import com.codepath.apps.twitterclient.ui.fragments.MentionsTimelineFragment;
-import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.ResponseHandlerInterface;
-
-import org.json.JSONObject;
-
 import android.app.SearchManager;
 import android.content.Intent;
 import android.database.MatrixCursor;
@@ -28,6 +15,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.RestClientApp;
+import com.codepath.apps.twitterclient.models.Suggestions;
+import com.codepath.apps.twitterclient.network.TwitterClient;
+import com.codepath.apps.twitterclient.ui.fragments.BaseTimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.HomeTimelineFragment;
+import com.codepath.apps.twitterclient.ui.fragments.MentionsTimelineFragment;
+import com.codepath.apps.twitterclient.ui.listeners.FragmentTabListener;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.ResponseHandlerInterface;
+
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.HttpResponse;

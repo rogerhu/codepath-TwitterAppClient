@@ -1,9 +1,7 @@
 package com.codepath.apps.twitterclient.models;
 
-import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.PrimaryKey;
-import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.structure.BaseModel;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.PrimaryKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,31 +21,30 @@ import org.json.JSONObject;
 /**
  * Created by rhu on 10/19/13.
  */
-@Table(database=MyDatabase.class)
-public class User extends BaseModel implements MyBaseModel {
+public class User implements MyBaseModel {
 
-    @Column(name = "name")
+    @ColumnInfo(name = "name")
     String name;
 
-    @Column(name = "location")
+    @ColumnInfo(name = "location")
     String location;
 
-    @Column(name = "profile_image_url")
+    @ColumnInfo(name = "profile_image_url")
     String profileImageUrl;
 
     @PrimaryKey
     Long twitter_id;
 
-    @Column(name = "screen_name")
+    @ColumnInfo(name = "screen_name")
     String screenName;
 
-	@Column(name = "followers_count")
+	@ColumnInfo(name = "followers_count")
 	Long followersCount;
 
-	@Column(name = "friends_count")
+	@ColumnInfo(name = "friends_count")
 	Long friendsCount;
 
-	@Column(name = "description")
+	@ColumnInfo(name = "description")
 	String description;
 
 	public User() {

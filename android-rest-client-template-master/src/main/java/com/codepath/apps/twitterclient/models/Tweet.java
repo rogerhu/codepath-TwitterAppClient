@@ -1,44 +1,35 @@
 package com.codepath.apps.twitterclient.models;
 
-import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.ForeignKey;
-import com.raizlabs.android.dbflow.annotation.PrimaryKey;
-import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.annotation.Unique;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
-import com.raizlabs.android.dbflow.structure.BaseModel;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.text.format.DateUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.text.format.DateUtils;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
+@Entity
+public class Tweet implements MyBaseModel {
 
-@Table(database = MyDatabase.class)
-public class Tweet extends BaseModel implements MyBaseModel {
-
-    @Column
-    @ForeignKey(saveForeignKeyModel = false)
-    User user;
+    @Embedded User user;
 
     // Define table fields
-    @Column(name = "text")
+    @ColumnInfo
     String text;
 
     @PrimaryKey
-    @Unique
-    @Column(name = "post_id")
+    @ColumnInfo(name = "post_id")
     Long post_id;
 
-    @Column(name = "created_at")
+    @ColumnInfo(name = "created_at")
     Date created_at;
 
     public Tweet() {
@@ -48,7 +39,6 @@ public class Tweet extends BaseModel implements MyBaseModel {
     // Parse model from JSON
     public Tweet(JSONObject object) {
         super();
-
         parseJSON(object);
 
     }
@@ -62,17 +52,7 @@ public class Tweet extends BaseModel implements MyBaseModel {
         try {
 
             JSONObject jsonUser = object.getJSONObject("user");
-            try {
-                this.user = ModelCreator
-                        .createOrUpdate(jsonUser, User.getUniqueId(jsonUser),
-                                User_Table.twitter_id, User.class);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return;
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            }
-
+            this.user = new User(jsonUser);
             this.text = object.getString("text");
             creationString = object.getString("created_at");
         } catch (JSONException e) {
@@ -95,21 +75,10 @@ public class Tweet extends BaseModel implements MyBaseModel {
             JSONObject tweetJson = null;
             try {
                 tweetJson = jsonArray.getJSONObject(i);
+                tweets.add(new Tweet(tweetJson));
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;
-            }
-
-            try {
-                Tweet tweet = ModelCreator
-                        .createOrUpdate(tweetJson, getUniqueId(tweetJson),
-                                Tweet_Table.post_id, Tweet.class);
-                tweets.add(tweet);
-
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
             }
         }
 
@@ -168,16 +137,5 @@ public class Tweet extends BaseModel implements MyBaseModel {
 
     public void setUser(User u) {
         this.user = u;
-    }
-
-    // Record finders
-    public static Tweet byId(Long tweetId) {
-        return SQLite.select().from(Tweet.class).where(Tweet_Table.post_id.eq(tweetId))
-                .querySingle();
-
-    }
-
-    public static List<Tweet> getRecentItems() {
-        return SQLite.select().from(Tweet.class).orderBy(Tweet_Table.created_at, false).queryList();
     }
 }

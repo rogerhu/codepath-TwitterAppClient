@@ -7,6 +7,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.RestClientApp;
+import com.codepath.apps.twitterclient.models.MyDatabase;
 import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 
@@ -59,7 +61,8 @@ public class HomeTimelineFragment extends BaseTimelineFragment {
 
 					tweetAdapter.clear();
 					initMinMax();
-					List<Tweet> tweets = Tweet.getRecentItems();
+					MyDatabase myDatabase = ((RestClientApp) getContext().getApplicationContext()).getMyDatabase();
+					List<Tweet> tweets = myDatabase.twitterDao().getRecentTweets();
 					if (tweets.size() > 0) {
 						tweetAdapter.addAll(tweets);
 					}

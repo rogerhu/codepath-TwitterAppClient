@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.network.RestClientApp;
+import com.codepath.apps.twitterclient.RestClientApp;
+import com.codepath.apps.twitterclient.models.TwitterDao;
 import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
@@ -155,6 +156,13 @@ public abstract class BaseTimelineFragment extends Fragment {
 			}
 		}
 		);
+		handler.addCallback(new TweetCallbackHandler() {
+			@Override
+			public void processItem(Tweet item) {
+				TwitterDao twitterDao = ((RestClientApp) getContext().getApplicationContext()).getMyDatabase().twitterDao();
+				twitterDao.insertTweet(item);
+			}
+		});
 		return handler;
 	}
 

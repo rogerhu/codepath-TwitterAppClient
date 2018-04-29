@@ -1,13 +1,5 @@
 package com.codepath.apps.twitterclient.ui.activities;
 
-import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.models.Tweet;
-import com.codepath.apps.twitterclient.network.RestClientApp;
-import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONObject;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +11,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.codepath.apps.twitterclient.R;
+import com.codepath.apps.twitterclient.RestClientApp;
+import com.codepath.apps.twitterclient.models.MyDatabase;
+import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.network.TwitterClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -60,11 +61,12 @@ public class ComposeActivity extends AppCompatActivity {
 	    });
 
 	    if (tweetId != 0) {
-		    replyToTweet = Tweet.byId(tweetId);
+			MyDatabase myDatabase = ((RestClientApp) getApplicationContext()).getMyDatabase();
+		    replyToTweet = myDatabase.twitterDao().byTweetId(tweetId);
 
-		    Log.d("debug", "Composing to " + replyToTweet.getUser().getTwitterHandle());
+		    Log.d("debug", "Composing to " + replyToTweet.getUser());
 		    EditText tweet = (EditText) findViewById(R.id.editText);
-		    tweet.append("@" + replyToTweet.getUser().getTwitterHandle() + " ");
+		    tweet.append("@" + replyToTweet.getUser() + " ");
 	    }
 
     }
