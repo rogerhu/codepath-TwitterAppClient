@@ -59,17 +59,21 @@ public class HomeTimelineFragment extends BaseTimelineFragment {
 
 					offlineMode = true;
 
-					tweetAdapter.clear();
+					tweets.clear();
 					initMinMax();
 					MyDatabase myDatabase = ((RestClientApp) getContext().getApplicationContext()).getMyDatabase();
-					List<Tweet> tweets = myDatabase.twitterDao().getRecentTweets();
-					if (tweets.size() > 0) {
-						tweetAdapter.addAll(tweets);
+					List<Tweet> dbTweets = myDatabase.twitterDao().getRecentTweets();
+					if (dbTweets.size() > 0) {
+						tweets.addAll(dbTweets);
 					}
+					tweetAdapter.notifyDataSetChanged();
+
 				} else {
 					offlineMode = false;
 					item.setChecked(false);
-					tweetAdapter.clear();
+					tweets.clear();
+					tweetAdapter.notifyDataSetChanged();
+
 					initMinMax();
 					loadMore(LoadType.OLDER_TWEETS);
 				}

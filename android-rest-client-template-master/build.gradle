@@ -41,6 +41,7 @@ dependencies {
     implementation files('libs/universal-image-loader-1.8.4.jar')
     implementation project('PullToRefresh')
     implementation 'com.facebook.stetho:stetho:1.5.0'
-    implementation "android.arch.persistence.room:runtime:1.1.0-beta3"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.0-beta3"
+    implementation "android.arch.persistence.room:runtime:1.1.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.0"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }

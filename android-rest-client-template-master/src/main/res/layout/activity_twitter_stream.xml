@@ -9,10 +9,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true">
 
-        <eu.erikw.PullToRefreshListView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"/>
+            android:id="@+id/recyclerView"/>
 
     </LinearLayout>
 </RelativeLayout>

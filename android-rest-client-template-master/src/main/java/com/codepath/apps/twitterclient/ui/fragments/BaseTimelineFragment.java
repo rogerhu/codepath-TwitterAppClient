@@ -3,6 +3,8 @@ package com.codepath.apps.twitterclient.ui.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +18,10 @@ import com.codepath.apps.twitterclient.network.TweetCallbackHandler;
 import com.codepath.apps.twitterclient.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.twitterclient.models.Tweet;
 import com.codepath.apps.twitterclient.network.TwitterClient;
-import com.codepath.apps.twitterclient.ui.listeners.EndlessScrollListener;
 import com.codepath.apps.twitterclient.ui.adapters.TweetAdapter;
 
 import java.util.ArrayList;
-
-import eu.erikw.PullToRefreshListView;
+import java.util.List;
 
 /**
  * Created by rhu on 10/19/13.
@@ -42,7 +42,8 @@ public abstract class BaseTimelineFragment extends Fragment {
 	public TweetAdapter tweetAdapter;
 	protected TwitterClient client;
 
-	PullToRefreshListView lvItems;
+	RecyclerView rvItems;
+	List<Tweet> tweets;
 	protected OnDataUpdateListener listener;
 
 	public interface OnDataUpdateListener {
@@ -69,15 +70,16 @@ public abstract class BaseTimelineFragment extends Fragment {
 		View v = inflater.inflate(R.layout.activity_twitter_stream, container, false);
 		initMinMax();
 
-		lvItems = (PullToRefreshListView) v.findViewById(R.id.listView);
+		rvItems = (RecyclerView) v.findViewById(R.id.recyclerView);
+		rvItems.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-		lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		/*rvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 				Long tweetId = (Long) view.getTag(R.id.TWEET_ID);
 				listener.composeTo(tweetId);
 			}
-		});
+		});*/
 
 		client = RestClientApp.getRestClient();
 
@@ -86,24 +88,26 @@ public abstract class BaseTimelineFragment extends Fragment {
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		tweetAdapter = new TweetAdapter(getActivity().getBaseContext(), new ArrayList<Tweet>());
+		tweets = new ArrayList<>();
+		tweetAdapter = new TweetAdapter(tweets);
 
-		lvItems.setAdapter(tweetAdapter);
-		lvItems.setOnScrollListener(new EndlessScrollListener() {
-
-			@Override
-			public void onLoadMore(int page, int totalItemsCount) {
-				Log.d("debug", "scroll listener");
-				loadMore(LoadType.OLDER_TWEETS);
-			}
-		});
-		lvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-
-			@Override
-			public void onRefresh() {
-				loadMore(LoadType.NEW_TWEETS);
-			}
-		});
+		rvItems.setAdapter(tweetAdapter);
+		loadMore(LoadType.OLDER_TWEETS);
+//		rvItems.setOnScrollListener(new EndlessScrollListener() {
+//
+//			@Override
+//			public void onLoadMore(int page, int totalItemsCount) {
+//				Log.d("debug", "scroll listener");
+//				loadMore(LoadType.OLDER_TWEETS);
+//			}
+//		});
+//		rvItems.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+//
+//			@Override
+//			public void onRefresh() {
+//				loadMore(LoadType.NEW_TWEETS);
+//			}
+//		});
 	}
 
 	public void initMinMax() {
@@ -126,9 +130,11 @@ public abstract class BaseTimelineFragment extends Fragment {
 		this.updateMinMax(tweet);
 
 		if (loadType == LoadType.NEW_TWEETS) {
-			tweetAdapter.insert(tweet, 0);
+			tweets.add(0, tweet);
+			tweetAdapter.notifyItemInserted(0);
 		} else {
-			tweetAdapter.add(tweet);
+			tweets.add(tweet);
+			tweetAdapter.notifyItemInserted(tweets.size());
 		}
 	}
 
@@ -145,7 +151,7 @@ public abstract class BaseTimelineFragment extends Fragment {
 			@Override
 			public void onPostExecute() {
 				Log.d("debug", "Refresh complete");
-				lvItems.onRefreshComplete();
+//				rvItems.onRefreshComplete();
 			}
 		};
 
